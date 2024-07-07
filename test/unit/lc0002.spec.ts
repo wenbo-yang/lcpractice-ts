@@ -1,4 +1,4 @@
-import { ListNode, SingleLinkedList } from "./commonStructures";
+import { ListNode, SingleLinkedList } from "./commonLibs";
 
 xdescribe('leetcode 2: add two numbers', () =>{
     function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {

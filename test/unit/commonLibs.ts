@@ -8,10 +8,7 @@ export class ListNode {
  }
 
  export class SingleLinkedList {
-
-
     public head: ListNode;
-
     constructor(nums: number[]) {
         this.head = new ListNode(nums[0]);
         let temp = this.head;
