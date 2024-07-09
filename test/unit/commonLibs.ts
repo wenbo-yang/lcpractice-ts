@@ -40,10 +40,14 @@ export class ListNode {
  
  export abstract class Heap<T> {
     protected heap: Array<T>  = [];
-    protected comparatorFn: any;
-     
-    constructor(cb?: any) {
-        this.comparatorFn = cb;
+    protected comparatorFn: (value1: T, value2: T) => number = (value1: T, value2: T): number => {
+        if (value1 > value2) return 1;
+        if (value1 < value2) return -1;
+        return 0;
+    };
+    
+    constructor(cb?: (value1: T, value2: T) => number) {
+        this.comparatorFn = cb || this.comparatorFn;
     }
     
     public peek(): T
@@ -138,8 +142,7 @@ export class ListNode {
             var left = Math.floor(current * 2 + 1);
             var right = Math.floor(current * 2 + 2);
             var index = current;
-            if (left < this.length && right < this.length)
-            {
+            if (left < this.length && right < this.length) {
                 index = this.comparatorFn(this.heap[left], this.heap[right]) < 0 ? left : right;
             }
             else if (right >= this.length) {

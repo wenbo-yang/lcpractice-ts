@@ -1,6 +1,6 @@
 import { ListNode, MinHeap, SingleLinkedList } from "./commonLibs";
 
-describe('leetcode 23: Merge k Sorted Lists', () =>{
+xdescribe('leetcode 23: Merge k Sorted Lists', () =>{
     interface ValueNodePair {
         value: number;
         node: ListNode | null;

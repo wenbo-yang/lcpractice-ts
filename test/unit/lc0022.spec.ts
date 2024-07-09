@@ -15,8 +15,7 @@ xdescribe('leetcode 22: generate', () =>{
     };
 
     function generateParenthesisHelper(input: Set<string>): Set<string> {
-        const result: Set<string> = new Set();
-
+        const result: Set<string> = new Set(); 
         input.forEach( s => {
             let startIndex = 0
             while(s.indexOf('()', startIndex) !== -1) {
