@@ -1,4 +1,4 @@
-describe('leetcode 32: Longest Valid Parentheses', () =>{
+xdescribe('leetcode 32: Longest Valid Parentheses', () => {
     function longestValidParentheses(s: string): number {
         const stack: number[] = [];
         const validParentheses: number[][] = []

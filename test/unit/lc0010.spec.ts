@@ -32,7 +32,7 @@ xdescribe('leetcode 10: regular expression matching', () =>{
             if (s.charAt(sIndex) === p.charAt(pIndex)) {
                 pIndex++;
                 sIndex++;
-                console.log(`here ${sIndex}, ${pIndex}, ${p.charAt(pIndex)}`)
+                
                 continue;
             }
         }
@@ -47,7 +47,6 @@ xdescribe('leetcode 10: regular expression matching', () =>{
                 continue;
             } 
             else {
-                console.log(`here ${sIndex}, ${pIndex}, ${p.charAt(pIndex)}`)
                 return false;
             }
         }
