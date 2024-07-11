@@ -47,6 +47,85 @@ export class TreeNode {
     }
 }
 
+export class Queue<T> {
+    private queuePointer = 0;
+    private array: T[] = [];
+
+    constructor(values?: T[]) {
+        this.array = Array.from(values || []);
+        this.queuePointer = 0;
+    }
+
+    public get length() {
+        return this.array.length - this.queuePointer;
+    }
+
+    public enqueue(item: T): void {
+        this.array.push(item);
+    }
+
+    public dequeue(): T | undefined {
+        const value = this.queuePointer !== this.array.length ? this.array[this.queuePointer++] : undefined;
+        if (this.queuePointer === this.array.length) {
+            this.array = [];
+            this.queuePointer = 0;
+        }
+        return value;
+    }
+}
+
+export class BinaryTree {
+    public root: TreeNode | null = null;
+
+    constructor(nums: (number | null)[]) {
+        this.writeTreeBfs(nums);
+    }
+
+    public static convertTreeNodeToArrayBfs(root: TreeNode | null): (number | null)[] {
+        const result: (number | null)[] = [];
+
+        const nodeQueue = new Queue<TreeNode | null>();
+        nodeQueue.enqueue(root);
+
+        while (nodeQueue.length !== 0) {
+            const node = nodeQueue.dequeue();
+
+            if (node) {
+                result.push(node.val);
+                if (node.left || node.right) {
+                    // not leaf node
+                    nodeQueue.enqueue(node.left);
+                    nodeQueue.enqueue(node.right);
+                }
+            } else {
+                result.push(null);
+            }
+        }
+
+        return result;
+    }
+
+    private writeTreeBfs(nums: (number | null)[]) {
+        const nodeQueue: Queue<TreeNode | null> = new Queue();
+        this.root = new TreeNode(nums[0] || undefined);
+        nodeQueue.enqueue(this.root);
+        let index = 1;
+
+        while (index < nums.length && nodeQueue.length > 0) {
+            const node = nodeQueue.dequeue();
+            if (node) {
+                const left = nums[index++];
+                node.left = left ? new TreeNode(left) : null;
+                const right = nums[index++];
+                node.right = right ? new TreeNode(right) : null;
+
+                nodeQueue.enqueue(node.left);
+                nodeQueue.enqueue(node.right);
+            }
+        }
+    }
+}
+
 export abstract class Heap<T> {
     protected heap: Array<T> = [];
     protected comparatorFn: (value1: T, value2: T) => number = (value1: T, value2: T): number => {
