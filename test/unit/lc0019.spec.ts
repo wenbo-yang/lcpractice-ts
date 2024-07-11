@@ -1,6 +1,6 @@
-import { ListNode, SingleLinkedList } from "./commonLibs";
+import { ListNode, SingleLinkedList } from './commonLibs';
 
-xdescribe('leetcode 19: remove nth node from the end', () =>{
+xdescribe('leetcode 19: remove nth node from the end', () => {
     function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
         const size = removeNthFromEndHelper(head, n);
 
@@ -9,7 +9,7 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         }
 
         return head;
-    };
+    }
 
     function removeNthFromEndHelper(node: ListNode | null, target: number): number {
         if (node === null) {
@@ -17,9 +17,9 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         }
 
         const current = removeNthFromEndHelper(node.next, target) + 1;
-        
+
         if (current - 1 === target) {
-            node.next = node.next?.next || null;    
+            node.next = node.next?.next || null;
         }
 
         return current;
@@ -41,19 +41,17 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
 
         if (index === 0) {
             head = head?.next || null;
-        }
-        else {
+        } else {
             stack[index - 1].next = stack[index].next;
         }
 
         return head;
-    };
+    }
 
-
-    it('test case 1 Input: Input: Input: head = [1,2,3,4,5], n = 2, Output: [1,2,3,5]', () =>{
-        const list = [1,2,3,4,5];
+    it('test case 1 Input: Input: Input: head = [1,2,3,4,5], n = 2, Output: [1,2,3,5]', () => {
+        const list = [1, 2, 3, 4, 5];
         const n = 2;
-        const output = [1,2,3,5];
+        const output = [1, 2, 3, 5];
 
         const head = new SingleLinkedList(list).head;
 
@@ -63,7 +61,7 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 
-    it('test case 2 Input: Input: Input: head = [1], n = 1, Output: []', () =>{
+    it('test case 2 Input: Input: Input: head = [1], n = 1, Output: []', () => {
         const list = [1];
         const n = 1;
         const output: number[] = [];
@@ -75,8 +73,8 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 
-    it('test case 3 Input: Input: Input: head = [1,2] n =1, Output: [1]', () =>{
-        const list = [1,2];
+    it('test case 3 Input: Input: Input: head = [1,2] n =1, Output: [1]', () => {
+        const list = [1, 2];
         const n = 1;
         const output = [1];
 
@@ -88,10 +86,10 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 
-    it('test case 4 Input: Input: Input: head = [1,2,3,4,5], n = 2, Output: [1,2,3,5]', () =>{
-        const list = [1,2,3,4,5];
+    it('test case 4 Input: Input: Input: head = [1,2,3,4,5], n = 2, Output: [1,2,3,5]', () => {
+        const list = [1, 2, 3, 4, 5];
         const n = 2;
-        const output = [1,2,3,5];
+        const output = [1, 2, 3, 5];
 
         const head = new SingleLinkedList(list).head;
 
@@ -101,7 +99,7 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 
-    it('test case 5 Input: Input: Input: head = [1], n = 1, Output: []', () =>{
+    it('test case 5 Input: Input: Input: head = [1], n = 1, Output: []', () => {
         const list = [1];
         const n = 1;
         const output: number[] = [];
@@ -113,8 +111,8 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 
-    it('test case 6 Input: Input: Input: head = [1,2] n =1, Output: [1]', () =>{
-        const list = [1,2];
+    it('test case 6 Input: Input: Input: head = [1,2] n =1, Output: [1]', () => {
+        const list = [1, 2];
         const n = 1;
         const output = [1];
 
@@ -126,4 +124,3 @@ xdescribe('leetcode 19: remove nth node from the end', () =>{
         expect(outputArray).toEqual(output);
     });
 });
-

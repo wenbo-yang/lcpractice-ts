@@ -1,18 +1,18 @@
-xdescribe('leetcode 6: zigzag conversion', () =>{
+xdescribe('leetcode 6: zigzag conversion', () => {
     function convert(s: string, numRows: number): string {
         if (numRows === 1) {
             return s;
         }
 
         const arrays: string[][] = [];
-        
+
         for (let i = 0; i < numRows; i++) {
             arrays.push([]);
         }
 
         let currentRow = -1;
         let vector = 1;
-        for(let i = 0; i < s.length; i++) {
+        for (let i = 0; i < s.length; i++) {
             if (currentRow === numRows - 1) {
                 vector = -1;
             }
@@ -25,16 +25,15 @@ xdescribe('leetcode 6: zigzag conversion', () =>{
             arrays[currentRow].push(s.charAt(i));
         }
 
-        const stringArrays: string[] = []
+        const stringArrays: string[] = [];
         for (let i = 0; i < numRows; i++) {
             stringArrays.push(arrays[i].join(''));
         }
-        
+
         return stringArrays.join('');
-    };
+    }
 
-
-    it('test case 1 s = "PAYPALISHIRING", numRows = 3, output PAHNAPLSIIGYIR', () =>{
+    it('test case 1 s = "PAYPALISHIRING", numRows = 3, output PAHNAPLSIIGYIR', () => {
         const output = convert('PAYPALISHIRING', 3);
 
         expect(output).toEqual('PAHNAPLSIIGYIR');

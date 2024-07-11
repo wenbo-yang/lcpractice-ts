@@ -1,9 +1,9 @@
-import { ListNode, SingleLinkedList } from "./commonLibs";
+import { ListNode, SingleLinkedList } from './commonLibs';
 
-xdescribe('leetcode 2: add two numbers', () =>{
+xdescribe('leetcode 2: add two numbers', () => {
     function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
         if (!(l1 && l2)) {
-            return (l1 || l2);
+            return l1 || l2;
         }
 
         let carry = 0;
@@ -28,21 +28,18 @@ xdescribe('leetcode 2: add two numbers', () =>{
             if (val >= 10) {
                 val -= 10;
                 carry = 1;
-            }
-            else {
+            } else {
                 carry = 0;
             }
 
             if (tail === null) {
                 head = new ListNode(val);
                 tail = head;
-            }
-            else {
+            } else {
                 tail.next = new ListNode(val);
                 tail = tail.next;
             }
-        }
-        while(l1 || l2);
+        } while (l1 || l2);
 
         if (carry) {
             tail.next = new ListNode(carry);
@@ -51,9 +48,9 @@ xdescribe('leetcode 2: add two numbers', () =>{
         return head;
     }
 
-    it('test case 1 l1 = [2,4,3], l2 = [5,6,4], [7,0,8]', () =>{
-        const l1Array = [2,4,3]
-        const l2Array = [5,6,4]
+    it('test case 1 l1 = [2,4,3], l2 = [5,6,4], [7,0,8]', () => {
+        const l1Array = [2, 4, 3];
+        const l2Array = [5, 6, 4];
         const l1 = new SingleLinkedList(l1Array).head;
         const l2 = new SingleLinkedList(l2Array).head;
 
@@ -63,12 +60,12 @@ xdescribe('leetcode 2: add two numbers', () =>{
 
         console.log(output);
 
-        expect(output).toEqual([7,0,8]);
+        expect(output).toEqual([7, 0, 8]);
     });
 
-    it('test case 2 l1 = [0], l2 = [0], [0]', () =>{
-        const l1Array = [0]
-        const l2Array = [0]
+    it('test case 2 l1 = [0], l2 = [0], [0]', () => {
+        const l1Array = [0];
+        const l2Array = [0];
         const l1 = new SingleLinkedList(l1Array).head;
         const l2 = new SingleLinkedList(l2Array).head;
 
@@ -81,9 +78,9 @@ xdescribe('leetcode 2: add two numbers', () =>{
         expect(output).toEqual([0]);
     });
 
-    it('test case 3 l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9], [8,9,9,9,0,0,0,1]', () =>{
-        const l1Array = [9,9,9,9,9,9,9]
-        const l2Array = [9,9,9,9]
+    it('test case 3 l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9], [8,9,9,9,0,0,0,1]', () => {
+        const l1Array = [9, 9, 9, 9, 9, 9, 9];
+        const l2Array = [9, 9, 9, 9];
         const l1 = new SingleLinkedList(l1Array).head;
         const l2 = new SingleLinkedList(l2Array).head;
 
@@ -92,6 +89,6 @@ xdescribe('leetcode 2: add two numbers', () =>{
         const output = SingleLinkedList.convertToArray(valueList);
 
         console.log(output);
-        expect(output).toEqual([8,9,9,9,0,0,0,1]);
+        expect(output).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
     });
 });

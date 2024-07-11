@@ -1,57 +1,65 @@
-import { inherits } from "util";
+import { inherits } from 'util';
 
 export class ListNode {
-      public val: number
-      public next: ListNode | null
-      constructor(val?: number, next?: ListNode | null) {
-          this.val = (val===undefined ? 0 : val)
-          this.next = (next===undefined ? null : next)
-      }
- }
+    public val: number;
+    public next: ListNode | null;
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+    }
+}
 
- export class SingleLinkedList {
+export class SingleLinkedList {
     public head: ListNode | null;
     constructor(nums: number[]) {
         if (nums.length === 0) {
             this.head = null;
-        }
-        else {
+        } else {
             this.head = new ListNode(nums[0]);
             let temp = this.head;
             for (let i = 1; i < nums.length; i++) {
                 temp.next = new ListNode(nums[i]);
-                temp = temp.next;           
+                temp = temp.next;
             }
-        }  
+        }
     }
 
     public static convertToArray(head: ListNode | null): number[] {
         let temp: ListNode | null = head;
         const array: number[] = [];
-        while(temp) {
+        while (temp) {
             array.push(temp.val);
             temp = temp.next;
         }
 
         return array;
     }
- }
+}
 
- 
- export abstract class Heap<T> {
-    protected heap: Array<T>  = [];
+export class TreeNode {
+    val: number;
+    left: TreeNode | null;
+    right: TreeNode | null;
+    constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.left = left === undefined ? null : left;
+        this.right = right === undefined ? null : right;
+    }
+}
+
+export abstract class Heap<T> {
+    protected heap: Array<T> = [];
     protected comparatorFn: (value1: T, value2: T) => number = (value1: T, value2: T): number => {
         if (value1 > value2) return 1;
         if (value1 < value2) return -1;
         return 0;
     };
-    
+
     constructor(cb?: (value1: T, value2: T) => number) {
         this.comparatorFn = cb || this.comparatorFn;
     }
-    
-    public peek(): T
-    {
+
+    public peek(): T {
         return this.heap[0];
     }
 
@@ -66,8 +74,7 @@ export class ListNode {
         this.swap(0, this.heap.length - 1);
         this.heap.pop();
 
-        if (this.heap.length > 0)
-        {
+        if (this.heap.length > 0) {
             this.heapDown();
         }
 
@@ -80,14 +87,12 @@ export class ListNode {
 
     // assume this is o(1) search and o(logk) removal
     public remove(target: T) {
-        for (let i = 0; i < this.heap.length; i++)
-        {
+        for (let i = 0; i < this.heap.length; i++) {
             if (this.comparatorFn(this.heap[i], target) === 0) {
                 this.swap(i, this.heap.length - 1);
                 this.heap.pop();
 
-                if (this.heap.length > 0)
-                {
+                if (this.heap.length > 0) {
                     this.heapDown();
                 }
             }
@@ -96,8 +101,7 @@ export class ListNode {
 
     public contains(target: T): boolean {
         for (let i = 0; i < this.heap.length; i++) {
-            if (this.comparatorFn(this.heap[i], target) === 0)
-            {
+            if (this.comparatorFn(this.heap[i], target) === 0) {
                 return true;
             }
         }
@@ -105,10 +109,10 @@ export class ListNode {
         return false;
     }
 
-    public get length(): number  {
-    return this.heap.length;
+    public get length(): number {
+        return this.heap.length;
     }
-    
+
     public abstract heapUp(): void;
     public abstract heapDown(): void;
 
@@ -117,15 +121,15 @@ export class ListNode {
         this.heap[i] = this.heap[j];
         this.heap[j] = temp;
     }
- }
+}
 
- export class MinHeap<T> extends Heap<T> {
-     public heapUp(): void {
+export class MinHeap<T> extends Heap<T> {
+    public heapUp(): void {
         var current = this.length - 1;
 
         while (current != 0) {
             var parent = current % 2 == 0 ? Math.floor(current / 2 - 1) : Math.floor(current / 2);
-            
+
             if (this.comparatorFn(this.heap[current], this.heap[parent]) >= 0) {
                 break;
             }
@@ -133,9 +137,9 @@ export class ListNode {
             this.swap(current, parent);
             current = parent;
         }
-     }
-     
-     public heapDown(): void {
+    }
+
+    public heapDown(): void {
         var current = 0;
 
         while (current < this.length) {
@@ -144,8 +148,7 @@ export class ListNode {
             var index = current;
             if (left < this.length && right < this.length) {
                 index = this.comparatorFn(this.heap[left], this.heap[right]) < 0 ? left : right;
-            }
-            else if (right >= this.length) {
+            } else if (right >= this.length) {
                 index = left;
             }
 
@@ -156,44 +159,43 @@ export class ListNode {
             this.swap(current, index);
             current = index;
         }
-     }
- }
+    }
+}
 
- export class MaxHeap<T> extends Heap<T> {
+export class MaxHeap<T> extends Heap<T> {
     public heapUp() {
-         var current = this.length - 1;
+        var current = this.length - 1;
 
-         while (current != 0) {
-             var parent = current % 2 == 0 ? Math.floor(current / 2 - 1) : Math.floor(current / 2);
-             if (this.heap[current] <= this.heap[parent]) {
-                 break;
-             }
+        while (current != 0) {
+            var parent = current % 2 == 0 ? Math.floor(current / 2 - 1) : Math.floor(current / 2);
+            if (this.heap[current] <= this.heap[parent]) {
+                break;
+            }
 
-             this.swap(current, parent);
-             current = parent;
-         }
-     }
+            this.swap(current, parent);
+            current = parent;
+        }
+    }
 
-     public heapDown() {
-         var current = 0;
+    public heapDown() {
+        var current = 0;
 
-         while (current < this.length) {
-             var left = Math.floor(current * 2 + 1);
-             var right = Math.floor(current * 2 + 2);
-             var index = current;
-             if (left < this.length && right < this.length) {
-                 index = this.comparatorFn(this.heap[left], this.heap[right]) > 0 ? left : right;
-             }
-             else if (right >= this.length) {
-                 index = left;
-             }
+        while (current < this.length) {
+            var left = Math.floor(current * 2 + 1);
+            var right = Math.floor(current * 2 + 2);
+            var index = current;
+            if (left < this.length && right < this.length) {
+                index = this.comparatorFn(this.heap[left], this.heap[right]) > 0 ? left : right;
+            } else if (right >= this.length) {
+                index = left;
+            }
 
-             if (index >= this.length || this.comparatorFn(this.heap[index], this.heap[current]) < 0) {
-                 break;
-             }
+            if (index >= this.length || this.comparatorFn(this.heap[index], this.heap[current]) < 0) {
+                break;
+            }
 
-             this.swap(current, index);
-             current = index;
-         }
-     }
- }
+            this.swap(current, index);
+            current = index;
+        }
+    }
+}

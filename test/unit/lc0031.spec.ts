@@ -3,10 +3,10 @@ xdescribe('leetcode 31: next permutation', () => {
         if (nums.length <= 1) {
             return;
         }
-        
+
         let i = nums.length - 2;
 
-        while(i >= 0 && nums[i + 1] <= nums[i]) {
+        while (i >= 0 && nums[i + 1] <= nums[i]) {
             i--;
         }
 
@@ -20,12 +20,10 @@ xdescribe('leetcode 31: next permutation', () => {
             swap(nums, i, j);
         }
 
-
         for (let k = i + 1; k < Math.floor((nums.length + i + 2) / 2); k++) {
             swap(nums, k, nums.length - 1 - k);
         }
-
-    };
+    }
 
     function swap(nums: number[], firstIndex: number, secondIndex: number): void {
         const temp = nums[firstIndex];
@@ -57,5 +55,3 @@ xdescribe('leetcode 31: next permutation', () => {
         expect(nums).toEqual([1, 2, 3]);
     });
 });
-
-

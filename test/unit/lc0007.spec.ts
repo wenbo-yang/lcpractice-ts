@@ -1,15 +1,15 @@
-xdescribe('leetcode 7: reverse integer', () =>{
+xdescribe('leetcode 7: reverse integer', () => {
     function reverse(x: number): number {
         if (x === 0) {
             return 0;
         }
-        
-        const minIntDigits = [2,1,4,7,4,8,3,6,4,8];
-        const maxIntDigits = [2,1,4,7,4,8,3,6,4,7];
+
+        const minIntDigits = [2, 1, 4, 7, 4, 8, 3, 6, 4, 8];
+        const maxIntDigits = [2, 1, 4, 7, 4, 8, 3, 6, 4, 7];
 
         const digits: number[] = [];
-        let result = x > 0 ? x : (-1 * x);
-        
+        let result = x > 0 ? x : -1 * x;
+
         while (result !== 0) {
             const decimal = result / 10 - Math.floor(result / 10);
             digits.push(Math.round(decimal * 10));
@@ -19,7 +19,7 @@ xdescribe('leetcode 7: reverse integer', () =>{
         if (digits.length === maxIntDigits.length) {
             const compareTo = x > 0 ? maxIntDigits : minIntDigits;
             for (let i = 0; i < digits.length; i++) {
-                if(digits[i]  < compareTo[i]) {
+                if (digits[i] < compareTo[i]) {
                     break;
                 }
                 if (digits[i] > compareTo[i]) {
@@ -34,20 +34,20 @@ xdescribe('leetcode 7: reverse integer', () =>{
             retVal = retVal * 10 + digits[i];
         }
 
-        return x > 0 ? retVal : (-1 * retVal);
-    };
+        return x > 0 ? retVal : -1 * retVal;
+    }
 
     function reverseToString(x: number): number {
         if (x === 0) {
             return 0;
         }
-        
+
         const minInt = -2147483648;
         const maxInt = 2147483647;
-        
+
         const s = x.toString();
-        
-        let result = x > 0 ? '' : '-';;
+
+        let result = x > 0 ? '' : '-';
         let startPoint = x > 0 ? 0 : 1;
         for (let i = s.length - 1; i >= startPoint; i--) {
             result += s.charAt(i);
@@ -55,11 +55,10 @@ xdescribe('leetcode 7: reverse integer', () =>{
 
         const retVal = Number(result);
 
-        return (retVal > maxInt || retVal < minInt) ? 0 : retVal;
-    };
+        return retVal > maxInt || retVal < minInt ? 0 : retVal;
+    }
 
-
-    it('test case 1 x = 123, Output: 321', () =>{
+    it('test case 1 x = 123, Output: 321', () => {
         const result = reverse(123);
         expect(result).toEqual(321);
     });
@@ -79,7 +78,7 @@ xdescribe('leetcode 7: reverse integer', () =>{
         expect(result).toEqual(-2143847412);
     });
 
-    it('test case 5 x = 123, Output: 321', () =>{
+    it('test case 5 x = 123, Output: 321', () => {
         const result = reverseToString(123);
         expect(result).toEqual(321);
     });

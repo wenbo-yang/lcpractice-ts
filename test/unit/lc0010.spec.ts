@@ -1,8 +1,8 @@
-xdescribe('leetcode 10: regular expression matching', () =>{
+xdescribe('leetcode 10: regular expression matching', () => {
     function isMatch(s: string, p: string): boolean {
         let pIndex = 0;
         let sIndex = 0;
-        while(sIndex < s.length) {
+        while (sIndex < s.length) {
             if (p.charAt(pIndex) === '.') {
                 pIndex++;
                 sIndex++;
@@ -12,19 +12,17 @@ xdescribe('leetcode 10: regular expression matching', () =>{
             if (p.charAt(pIndex) === '*') {
                 if (p.charAt(pIndex - 1) === '.' || p.charAt(pIndex - 1) === s.charAt(sIndex)) {
                     sIndex++;
-                    continue;    
-                }
-                else {
+                    continue;
+                } else {
                     pIndex++;
                 }
             }
 
-            if ((p.charAt(pIndex) !== '.' && p.charAt(pIndex) !== '*') && s.charAt(sIndex) !== p.charAt(pIndex)) {
+            if (p.charAt(pIndex) !== '.' && p.charAt(pIndex) !== '*' && s.charAt(sIndex) !== p.charAt(pIndex)) {
                 if (p.charAt(pIndex + 1) === '*') {
                     pIndex += 2;
                     continue;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
@@ -32,27 +30,26 @@ xdescribe('leetcode 10: regular expression matching', () =>{
             if (s.charAt(sIndex) === p.charAt(pIndex)) {
                 pIndex++;
                 sIndex++;
-                
+
                 continue;
             }
         }
 
         if (p.charAt(pIndex) === '*') {
-           pIndex++;
+            pIndex++;
         }
 
         while (pIndex < p.length) {
-            if (p.charAt(pIndex) !== '*'  && p.charAt(pIndex + 1) === '*') {
+            if (p.charAt(pIndex) !== '*' && p.charAt(pIndex + 1) === '*') {
                 pIndex += 2;
                 continue;
-            } 
-            else {
+            } else {
                 return false;
             }
         }
 
         return true;
-    };
+    }
 
     // it('test case 1 s = "aa", p = "a", Output: false', () =>{
     //     const output = isMatch('aa', 'a');
@@ -69,7 +66,7 @@ xdescribe('leetcode 10: regular expression matching', () =>{
     //     expect(output).toBeTruthy();
     // });
 
-    it('test case 4 s = "abc", p = ".*c", Output: true', () =>{
+    it('test case 4 s = "abc", p = ".*c", Output: true', () => {
         const output = isMatch('abc', '.*c');
         expect(output).toBeTruthy();
     });

@@ -1,12 +1,12 @@
-xdescribe('leetcode 34: Find First and Last Position of Element in Sorted Array', () =>{
+xdescribe('leetcode 34: Find First and Last Position of Element in Sorted Array', () => {
     function searchRange(nums: number[], target: number): number[] {
         const retVal = searchRangeHelper(nums, target, 0, nums.length - 1);
         if (retVal[0] === Number.MAX_SAFE_INTEGER) {
-            return [-1, -1]
+            return [-1, -1];
         }
 
         return retVal;
-    };
+    }
 
     function searchRangeHelper(nums: number[], target: number, l: number, r: number): number[] {
         if (nums[l] > target || nums[r] < target || l > r) {
@@ -26,7 +26,7 @@ xdescribe('leetcode 34: Find First and Last Position of Element in Sorted Array'
     }
 
     it('test case 1 Input: nums = [5,7,7,8,8,10], target = 8, output [3,4] ', () => {
-        const nums = [5,7,7,8,8,10];
+        const nums = [5, 7, 7, 8, 8, 10];
         const target = 8;
 
         const result = searchRange(nums, target);
@@ -34,6 +34,3 @@ xdescribe('leetcode 34: Find First and Last Position of Element in Sorted Array'
         expect(result).toEqual([3, 4]);
     });
 });
-
-
-

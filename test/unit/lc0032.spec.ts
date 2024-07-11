@@ -1,7 +1,7 @@
 xdescribe('leetcode 32: Longest Valid Parentheses', () => {
     function longestValidParentheses(s: string): number {
         const stack: number[] = [];
-        const validParentheses: number[][] = []
+        const validParentheses: number[][] = [];
         let longest = 0;
         for (let i = 0; i < s.length; i++) {
             if (s.charAt(i) === '(') {
@@ -16,27 +16,25 @@ xdescribe('leetcode 32: Longest Valid Parentheses', () => {
                 let k = validParentheses.length - 1;
                 while (k >= 0) {
                     const prev = validParentheses[k];
-                    if (current[1] > prev[1] && current[0]< prev[0]) {
+                    if (current[1] > prev[1] && current[0] < prev[0]) {
                         validParentheses.pop();
-                    }
-                    else if (prev[1] + 1 === current[0]) {
+                    } else if (prev[1] + 1 === current[0]) {
                         current[0] = prev[0];
                         validParentheses.pop();
                         break;
-                    }
-                    else {
+                    } else {
                         break;
                     }
                     k--;
                 }
-                
+
                 validParentheses.push(current);
                 longest = Math.max(longest, current[1] - current[0] + 1);
             }
         }
 
         return longest;
-    };
+    }
 
     it('test case 1 Input: s = "(()", output 2', () => {
         const s = '(()';
@@ -66,5 +64,3 @@ xdescribe('leetcode 32: Longest Valid Parentheses', () => {
         expect(result).toEqual(10);
     });
 });
-
-

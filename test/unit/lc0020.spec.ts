@@ -1,4 +1,4 @@
-xdescribe('leetcode 20: valid parentheses', () =>{
+xdescribe('leetcode 20: valid parentheses', () => {
     function isValid(s: string): boolean {
         const stack: string[] = [];
 
@@ -9,14 +9,14 @@ xdescribe('leetcode 20: valid parentheses', () =>{
 
             if (isClosing(s.charAt(i))) {
                 const open = stack.pop() || '';
-                if(!isMatching(open, s.charAt(i))) {
+                if (!isMatching(open, s.charAt(i))) {
                     return false;
                 }
             }
         }
 
         return stack.length === 0;
-    };
+    }
 
     function isOpenning(s: string): boolean {
         return s === '(' || s === '{' || s === '[';
@@ -27,7 +27,7 @@ xdescribe('leetcode 20: valid parentheses', () =>{
     }
 
     function isMatching(open: string, close: string): boolean {
-        return (open === '(' && close === ')') || (open === '{' && close === '}') || (open === '[' && close === ']')
+        return (open === '(' && close === ')') || (open === '{' && close === '}') || (open === '[' && close === ']');
     }
 
     it('test case 1 Input: s = "()", Output: true', () => {
