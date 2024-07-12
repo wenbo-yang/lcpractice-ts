@@ -1,12 +1,12 @@
 import { TreeNode } from './commonLibs';
 
-describe('leetcode 99: recover bst', () => {
-    export class RecoverTree {
-        private first: TreeNode | null;
-        private second: TreeNode | null;
+xdescribe('leetcode 99: recover bst', () => {
+    class RecoverTree {
+        private first: TreeNode | null = null;
+        private second: TreeNode | null = null;
 
-        private prev: TreeNode | null;
-        private root: TreeNode | null;
+        private prev: TreeNode | null = null;
+        public root: TreeNode | null = null;
         constructor(root: TreeNode | null) {
             this.root = root;
         }
@@ -34,9 +34,9 @@ describe('leetcode 99: recover bst', () => {
         }
     }
 
-    function recoverTree(root: TreeNode | null): void {}
-
-    function findErrorNode(root): boolean;
+    function recoverTree(root: TreeNode | null): void {
+        root = new RecoverTree(root).recoverTree().root;
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

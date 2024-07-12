@@ -68,13 +68,13 @@ xdescribe('leetcode 98: valid bst', () => {
 
     it('test case 5 Input: root = [5,1,4,null,null,3,6], output false ', () => {
         const root = new BinaryTree([5, 1, 4, null, null, 3, 6]).root;
-        const result = inOrderTraversal(root, null);
+        const result = inOrderTraversal(root, []);
         expect(result).toBeFalsy();
     });
 
     it('test case 6 Input: root = [3,1,4,null,null,2], output false ', () => {
         const root = new BinaryTree([3, 1, 4, null, null, 2]).root;
-        const result = inOrderTraversal(root, null);
+        const result = inOrderTraversal(root, []);
         expect(result).toBeFalsy();
     });
 });

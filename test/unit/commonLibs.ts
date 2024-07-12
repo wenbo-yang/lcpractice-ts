@@ -115,9 +115,9 @@ export class BinaryTree {
             const node = nodeQueue.dequeue();
             if (node) {
                 const left = nums[index++];
-                node.left = left ? new TreeNode(left) : null;
+                node.left = (left || left === 0) ? new TreeNode(left) : null;
                 const right = nums[index++];
-                node.right = right ? new TreeNode(right) : null;
+                node.right = (right || right === 0) ? new TreeNode(right) : null;
 
                 nodeQueue.enqueue(node.left);
                 nodeQueue.enqueue(node.right);
@@ -276,5 +276,15 @@ export class MaxHeap<T> extends Heap<T> {
             this.swap(current, index);
             current = index;
         }
+    }
+}
+
+export class _Node {
+    val: number;
+    neighbors: _Node[];
+
+    constructor(val?: number, neighbors?: _Node[]) {
+        this.val = val === undefined ? 0 : val;
+        this.neighbors = neighbors === undefined ? [] : neighbors;
     }
 }

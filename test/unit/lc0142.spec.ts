@@ -1,4 +1,4 @@
-xdescribe('leetcode num: description', () => {
+xdescribe('leetcode 142: circular linked list', () => {
     function func(): void {
         throw new Error('not implemented');
     }
