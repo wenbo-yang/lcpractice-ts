@@ -1,5 +1,6 @@
 module.exports = {
     testEnvironment: 'node',
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js', 'jest-extended'],
-    preset: 'ts-jest'
+    preset: 'ts-jest',
+    maxWorkers: '20'
 }

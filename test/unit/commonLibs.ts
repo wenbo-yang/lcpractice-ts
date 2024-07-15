@@ -115,9 +115,9 @@ export class BinaryTree {
             const node = nodeQueue.dequeue();
             if (node) {
                 const left = nums[index++];
-                node.left = (left || left === 0) ? new TreeNode(left) : null;
+                node.left = left || left === 0 ? new TreeNode(left) : null;
                 const right = nums[index++];
-                node.right = (right || right === 0) ? new TreeNode(right) : null;
+                node.right = right || right === 0 ? new TreeNode(right) : null;
 
                 nodeQueue.enqueue(node.left);
                 nodeQueue.enqueue(node.right);
