@@ -16,11 +16,11 @@ xdescribe('leetcode 103: zigzag order', () => {
         }
 
         const queue: Queue<{ node: TreeNode | null; depth: number }> = new Queue();
-        queue.enqueue({ node: root, depth: 0 });
+        queue.enque({ node: root, depth: 0 });
         const result: number[][] = [];
         let zigzagFlag = false;
         while (queue.length > 0) {
-            const top = queue.dequeue();
+            const top = queue.deque();
             if (result.length === top?.depth) {
                 result.push([]);
                 zigzagFlag = !zigzagFlag;
@@ -33,7 +33,7 @@ xdescribe('leetcode 103: zigzag order', () => {
                 let second: TreeNode | null = null;
 
                 if (zigzagFlag) {
-                    // enqueue right first
+                    // enque right first
                     first = top.node.right;
                     second = top.node.left;
                 } else {
@@ -41,8 +41,8 @@ xdescribe('leetcode 103: zigzag order', () => {
                     second = top.node.right;
                 }
 
-                if (first) queue.enqueue({ node: first, depth: top.depth + 1 });
-                if (second) queue.enqueue({ node: second, depth: top.depth + 1 });
+                if (first) queue.enque({ node: first, depth: top.depth + 1 });
+                if (second) queue.enque({ node: second, depth: top.depth + 1 });
             }
         }
 

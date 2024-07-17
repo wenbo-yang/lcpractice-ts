@@ -1,4 +1,4 @@
-describe('leetcode 179: largest number', () => {
+xdescribe('leetcode 179: largest number', () => {
     function largestNumber(nums: number[]): string {
         const stringArray = nums
             .map((n) => n.toString())

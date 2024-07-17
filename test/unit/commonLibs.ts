@@ -60,11 +60,11 @@ export class Queue<T> {
         return this.array.length - this.queuePointer;
     }
 
-    public enqueue(item: T): void {
+    public enque(item: T): void {
         this.array.push(item);
     }
 
-    public dequeue(): T | undefined {
+    public deque(): T | undefined {
         const value = this.queuePointer !== this.array.length ? this.array[this.queuePointer++] : undefined;
         if (this.queuePointer === this.array.length) {
             this.array = [];
@@ -84,18 +84,18 @@ export class BinaryTree {
     public static convertTreeNodeToArrayBfs(root: TreeNode | null): (number | null)[] {
         const result: (number | null)[] = [];
 
-        const nodeQueue = new Queue<TreeNode | null>();
-        nodeQueue.enqueue(root);
+        const nodeque = new Queue<TreeNode | null>();
+        nodeque.enque(root);
 
-        while (nodeQueue.length !== 0) {
-            const node = nodeQueue.dequeue();
+        while (nodeque.length !== 0) {
+            const node = nodeque.deque();
 
             if (node) {
                 result.push(node.val);
                 if (node.left || node.right) {
                     // not leaf node
-                    nodeQueue.enqueue(node.left);
-                    nodeQueue.enqueue(node.right);
+                    nodeque.enque(node.left);
+                    nodeque.enque(node.right);
                 }
             } else {
                 result.push(null);
@@ -106,21 +106,21 @@ export class BinaryTree {
     }
 
     private writeTreeBfs(nums: (number | null)[]) {
-        const nodeQueue: Queue<TreeNode | null> = new Queue();
+        const nodeque: Queue<TreeNode | null> = new Queue();
         this.root = new TreeNode(nums[0] || undefined);
-        nodeQueue.enqueue(this.root);
+        nodeque.enque(this.root);
         let index = 1;
 
-        while (index < nums.length && nodeQueue.length > 0) {
-            const node = nodeQueue.dequeue();
+        while (index < nums.length && nodeque.length > 0) {
+            const node = nodeque.deque();
             if (node) {
                 const left = nums[index++];
                 node.left = left || left === 0 ? new TreeNode(left) : null;
                 const right = nums[index++];
                 node.right = right || right === 0 ? new TreeNode(right) : null;
 
-                nodeQueue.enqueue(node.left);
-                nodeQueue.enqueue(node.right);
+                nodeque.enque(node.left);
+                nodeque.enque(node.right);
             }
         }
     }
@@ -288,3 +288,192 @@ export class _Node {
         this.neighbors = neighbors === undefined ? [] : neighbors;
     }
 }
+
+export class TrieNode {
+    public char: string;
+    public children: TrieNode[] = [];
+    public end: boolean;
+
+    constructor(char: string, children: TrieNode[], end: boolean) {
+        this.char = char;
+        this.children = children;
+        this.end = end;
+    }
+}
+
+export class Trie {
+    private root: TrieNode[] = [];
+
+    constructor() {}
+
+    insert(word: string): void {
+        let tempNode = this.root;
+
+        for (let i = 0; i < word.length; i++) {
+            const foundMatching = tempNode.find((t) => t.char === word[i]);
+            if (foundMatching) {
+                foundMatching.end = i === word.length - 1;
+                tempNode = foundMatching.children;
+            } else {
+                tempNode.push(new TrieNode(word[i], [], i === word.length - 1));
+                tempNode = tempNode[tempNode.length - 1].children;
+            }
+        }
+    }
+
+    search(word: string): boolean {
+        let tempNode = this.root;
+        for (let i = 0; i < word.length; i++) {
+            const expectsEnd = i === word.length - 1;
+            const foundMatching = tempNode.find((t) => t.char === word[i]);
+            if (!foundMatching || foundMatching.end !== expectsEnd) {
+                return false;
+            }
+
+            tempNode = foundMatching.children;
+        }
+
+        return true;
+    }
+
+    startsWith(prefix: string): boolean {
+        let tempNode = this.root;
+        for (let i = 0; i < prefix.length; i++) {
+            const foundMatching = tempNode.find((t) => t.char === prefix[i]);
+            if (!foundMatching) {
+                return false;
+            }
+
+            tempNode = foundMatching.children;
+        }
+
+        return true;
+    }
+}
+
+export class UnionFind {
+    private ranks: number[] = [];
+    private parents: number[] = [];
+
+    constructor(size: number) {
+        this.ranks = new Array<number>(size + 1).fill(0);
+        let i = 0;
+        this.parents = new Array<number>(size + 1).map((r) => i++);
+    }
+
+    public find(u: number): number {
+        if (u !== this.parents[u]) {
+            this.parents[u] = this.find(this.parents[u]);
+        }
+        return this.parents[u];
+    }
+
+    public union(u: number, v: number): boolean {
+        const pu = this.find(u);
+        const pv = this.find(v);
+
+        if (pu === pv) {
+            return false;
+        }
+
+        if (this.ranks[pv] < this.ranks[pu]) {
+            this.parents[pv] = pu;
+        } else if (this.ranks[pv] > this.ranks[pu]) {
+            this.parents[pu] = pv;
+        } else {
+            this.parents[pv] = pu;
+            this.ranks[pu] += 1;
+        }
+
+        return true;
+    }
+}
+
+/**
+ * A lock for synchronizing async operations.
+ * Use this to protect a critical section
+ * from getting modified by multiple async operations
+ * at the same time.
+ */
+export class Mutex {
+    /**
+     * When multiple operations attempt to acquire the lock,
+     * this queue remembers the order of operations.
+     */
+    private _queue: {
+        resolve: (release: ReleaseFunction) => void;
+    }[] = [];
+
+    private _isLocked = false;
+
+    /**
+     * Wait until the lock is acquired.
+     * @returns A function that releases the acquired lock.
+     */
+    acquire() {
+        return new Promise<ReleaseFunction>((resolve) => {
+            this._queue.push({ resolve });
+            this._dispatch();
+        });
+    }
+
+    /**
+     * Enqueue a function to be run serially.
+     *
+     * This ensures no other functions will start running
+     * until `callback` finishes running.
+     * @param callback Function to be run exclusively.
+     * @returns The return value of `callback`.
+     */
+    async runExclusive<T>(callback: () => Promise<T>) {
+        const release = await this.acquire();
+        try {
+            return await callback();
+        } finally {
+            release();
+        }
+    }
+
+    /**
+     * Check the availability of the resource
+     * and provide access to the next operation in the queue.
+     *
+     * _dispatch is called whenever availability changes,
+     * such as after lock acquire request or lock release.
+     */
+    private _dispatch() {
+        if (this._isLocked) {
+            // The resource is still locked.
+            // Wait until next time.
+            return;
+        }
+        const nextEntry = this._queue.shift();
+        if (!nextEntry) {
+            // There is nothing in the queue.
+            // Do nothing until next dispatch.
+            return;
+        }
+        // The resource is available.
+        this._isLocked = true; // Lock it.
+        // and give access to the next operation
+        // in the queue.
+        nextEntry.resolve(this._buildRelease());
+    }
+
+    /**
+     * Build a release function for each operation
+     * so that it can release the lock after
+     * the operation is complete.
+     */
+    private _buildRelease(): ReleaseFunction {
+        return () => {
+            // Each release function make
+            // the resource available again
+            this._isLocked = false;
+            // and call dispatch.
+            this._dispatch();
+        };
+    }
+}
+
+type ReleaseFunction = () => void;

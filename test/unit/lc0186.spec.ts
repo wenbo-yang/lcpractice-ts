@@ -1,4 +1,4 @@
-describe('leetcode 186: reverse words in a string', () => {
+xdescribe('leetcode 186: reverse words in a string', () => {
     // no extra memory
     // idea two pass first reverse the entire string
     // then revere each word

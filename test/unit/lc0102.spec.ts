@@ -8,12 +8,12 @@ xdescribe('leetcode 102: binary Tree level order traversal', () => {
 
         const queue: Queue<{ node: TreeNode; depth: number }> = new Queue();
 
-        queue.enqueue({ node: root, depth: 0 });
+        queue.enque({ node: root, depth: 0 });
         const currentLevel = 0;
         const result: number[][] = [];
 
         while (queue.length > 0) {
-            const top = queue.dequeue();
+            const top = queue.deque();
 
             if (top && top.depth === result.length) {
                 result.push([]);
@@ -23,11 +23,11 @@ xdescribe('leetcode 102: binary Tree level order traversal', () => {
             }
 
             if (top && top.node && top.node.left) {
-                queue.enqueue({ node: top.node.left, depth: top.depth + 1 });
+                queue.enque({ node: top.node.left, depth: top.depth + 1 });
             }
 
             if (top && top.node && top.node.right) {
-                queue.enqueue({ node: top.node.right, depth: top.depth + 1 });
+                queue.enque({ node: top.node.right, depth: top.depth + 1 });
             }
         }
 
