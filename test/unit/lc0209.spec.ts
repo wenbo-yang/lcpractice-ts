@@ -7,8 +7,6 @@ xdescribe('leetcode 209: minimum subArray length', () => {
         let currentSum = 0;
 
         while (r < nums.length) {
-            console.log({ currentMin, currentSum, l, r });
-
             if (currentSum > target) {
                 currentSum -= nums[l++];
                 continue;
@@ -21,7 +19,6 @@ xdescribe('leetcode 209: minimum subArray length', () => {
 
             currentSum += nums[r++];
 
-            console.log({ currentMin, currentSum, l, r });
         }
 
         return currentMin;

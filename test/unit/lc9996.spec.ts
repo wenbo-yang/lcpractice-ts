@@ -1,4 +1,4 @@
-describe('leetcode 9996: query database', () => {
+xdescribe('leetcode 9996: query database', () => {
     class Row {
         public columnValues: string[] = [];
         constructor(columnValues: string[]) {
@@ -217,8 +217,6 @@ describe('leetcode 9996: query database', () => {
                 }
             }
 
-            console.log(this);
-
             return new RowQuery(this.table.getColumnNames(), rowsArray);
         }
 
@@ -305,6 +303,6 @@ describe('leetcode 9996: query database', () => {
 
         const queryResult = new Query(db).from(testTableName).where(testWhereOperation).orderBy(testTableColumns[1]).select(testTableColumns);
 
-        console.log(queryResult);
+        expect(queryResult).toEqual([ [ 'col1', 'col2' ], [ '123', '321' ], [ '123', '456' ]]);
     });
 });

@@ -11,7 +11,7 @@ xdescribe('leetcode num: description', () => {
     class PeekingIterator {
         private iterator: Iterator;
         private hasPeeked: boolean = false; // Flag to check if we already peeked at the next element
-        private peekedValue: number;
+        private peekedValue: number = 0;
         constructor(iterator: Iterator) {
             this.iterator = iterator;
         }
