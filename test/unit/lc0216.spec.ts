@@ -11,6 +11,8 @@ xdescribe('leetcode 216: combination sum', () => {
 
         const results: number[][] = [];
         combinationSumHelper(array, [], k, n, results);
+
+        return results;
     };
 
     function combinationSumHelper(array: number[], pickedIndices: number[], k: number, n: number, results: number[][]): void {
