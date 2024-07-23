@@ -303,6 +303,10 @@ xdescribe('leetcode 9996: query database', () => {
 
         const queryResult = new Query(db).from(testTableName).where(testWhereOperation).orderBy(testTableColumns[1]).select(testTableColumns);
 
-        expect(queryResult).toEqual([ [ 'col1', 'col2' ], [ '123', '321' ], [ '123', '456' ]]);
+        expect(queryResult).toEqual([
+            ['col1', 'col2'],
+            ['123', '321'],
+            ['123', '456'],
+        ]);
     });
 });

@@ -24,10 +24,10 @@ xdescribe('leetcode 213: house robber with circular houses', () => {
     }
 
     it('test case 1 Input:  nums = [2,3,2], output 3 ', () => {
-        expect(rob([2,3,2])).toEqual(3);
+        expect(rob([2, 3, 2])).toEqual(3);
     });
 
     it('test case 2 Input:  nums = [1,2,3,1], output 4 ', () => {
-        expect(rob([1,2,3,1])).toEqual(4);
+        expect(rob([1, 2, 3, 1])).toEqual(4);
     });
 });

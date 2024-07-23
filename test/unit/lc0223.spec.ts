@@ -7,8 +7,7 @@ xdescribe('leetcode 223: description', () => {
         let y1 = Math.max(ay1, by1);
         let y2 = Math.max(y1, Math.min(ay2, by2));
         return area1 + area2 - (x2 - x1) * (y2 - y1);
-
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

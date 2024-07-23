@@ -64,7 +64,7 @@ xdescribe('leetcode 68: Text Justification', () => {
         const words = ['This', 'is', 'an', 'example', 'of', 'text', 'justification.'];
 
         const expectedResult = ['This    is    an', 'example  of text', 'justification.  '];
-        const result = fullJustify(words, 16);;
+        const result = fullJustify(words, 16);
         expect(result).toEqual(expectedResult);
     });
 });

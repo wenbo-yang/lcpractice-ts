@@ -18,7 +18,6 @@ xdescribe('leetcode 209: minimum subArray length', () => {
             }
 
             currentSum += nums[r++];
-
         }
 
         return currentMin;

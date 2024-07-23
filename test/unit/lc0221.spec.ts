@@ -1,10 +1,10 @@
 describe('leetcode 221: maximal square', () => {
     function maximalSquare(matrix: string[][]): number {
-        // bounding square  
+        // bounding square
         const boundSquare: Map<string, string> = new Map();
         let result = 0;
-        for(let i = 0; i < matrix.length; i++) {
-            for(let j = 0; j < matrix[0].length; j++) {
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] === '1') {
                     let currentSize = setBoundingSquare(matrix, i, j, boundSquare);
                     result = Math.max(result, currentSize);
@@ -13,10 +13,10 @@ describe('leetcode 221: maximal square', () => {
         }
 
         return result;
-    };
+    }
 
     function setBoundingSquare(matrix: string[][], i: number, j: number, boundSquare: Map<string, string>): number {
-        const topLeft = (boundSquare.get([i - 1, j - 1].join()) || [i, j].join()).split(',').map(s => Number(s));
+        const topLeft = (boundSquare.get([i - 1, j - 1].join()) || [i, j].join()).split(',').map((s) => Number(s));
         const bottomRight = [i, j];
         const updatedTopLeft = determineLargerSquare(matrix, topLeft, bottomRight);
 
@@ -32,7 +32,6 @@ describe('leetcode 221: maximal square', () => {
             }
         }
 
-
         for (let j = topLeft[1]; j < bottomRight[1]; j++) {
             if (matrix[bottomRight[0]][j] !== '1') {
                 return bottomRight;
@@ -43,11 +42,13 @@ describe('leetcode 221: maximal square', () => {
     }
 
     it('test case 1 Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]], output 4', () => {
-        const matrix = [['1','0','1','0','0'],['1','0','1','1','1'],['1','1','1','1','1'],['1','0','0','1','0']];
+        const matrix = [
+            ['1', '0', '1', '0', '0'],
+            ['1', '0', '1', '1', '1'],
+            ['1', '1', '1', '1', '1'],
+            ['1', '0', '0', '1', '0'],
+        ];
         const result = maximalSquare(matrix);
         expect(result).toEqual(4);
     });
 });
-
-
-
