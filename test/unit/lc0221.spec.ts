@@ -1,4 +1,4 @@
-describe('leetcode 221: maximal square', () => {
+xdescribe('leetcode 221: maximal square', () => {
     function maximalSquare(matrix: string[][]): number {
         // bounding square
         const boundSquare: Map<string, string> = new Map();

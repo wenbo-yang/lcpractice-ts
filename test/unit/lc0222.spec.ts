@@ -16,7 +16,7 @@ xdescribe('leetcode 222: description', () => {
         }
     }
 
-    function depth(root: TreeNode | null) {
+    function depth(root: TreeNode | null): number {
         if (!root) {
             return 0;
         }
