@@ -1,6 +1,5 @@
 xdescribe('leetcode 238: product array except itself', () => {
     function productExceptSelf(nums: number[]): number[] {
-        // count 0s 
         const retVal: Array<number> = new Array(nums.length).fill(0);
         const l = new Array<number>(nums.length).fill(1);
         const r = new Array<number>(nums.length).fill(1);

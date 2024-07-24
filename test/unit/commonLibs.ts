@@ -72,6 +72,19 @@ export class Queue<T> {
         }
         return value;
     }
+
+    public peek(): T | undefined {
+        return this.array[0];
+    }
+
+    public pop(): T | undefined {
+        const result = this.array.pop();
+        return result;
+    }
+
+    public get last(): T | undefined {
+        return this.array[this.array.length - 1];
+    }
 }
 
 export class BinaryTree {
