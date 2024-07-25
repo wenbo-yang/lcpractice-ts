@@ -1,4 +1,4 @@
-import { ListNode } from "./commonLibs";
+import { ListNode } from './commonLibs';
 
 xdescribe('leetcode 234: description', () => {
     function isPalindrome(head: ListNode | null): boolean {
@@ -18,7 +18,7 @@ xdescribe('leetcode 234: description', () => {
         let right = stack.length - 1;
 
         while (left < right) {
-            if(stack[left]?.val !== stack[right]?.val) {
+            if (stack[left]?.val !== stack[right]?.val) {
                 return false;
             }
 
@@ -27,8 +27,7 @@ xdescribe('leetcode 234: description', () => {
         }
 
         return true;
-    };
-
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

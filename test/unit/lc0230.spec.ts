@@ -1,4 +1,4 @@
-import {TreeNode} from './commonLibs';
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 230: description', () => {
     function kthSmallest(root: TreeNode | null, k: number): number {
@@ -11,7 +11,7 @@ xdescribe('leetcode 230: description', () => {
         kthSmallestHelper(root, k, currentCount, result);
 
         return result[0];
-    };
+    }
 
     function kthSmallestHelper(root: any, k: number, currentCount: number[], result: number[]): number {
         if (!root) {
@@ -43,4 +43,3 @@ xdescribe('leetcode 230: description', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

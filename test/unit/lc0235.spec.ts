@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 235: find common ancestor of a binary search tree', () => {
     function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
@@ -7,7 +7,7 @@ xdescribe('leetcode 235: find common ancestor of a binary search tree', () => {
 
         const pStack: (TreeNode | null)[] = [];
         const qStack: (TreeNode | null)[] = [];
-        
+
         findNode(root, pVal, pStack);
         findNode(root, qVal, qStack);
 
@@ -21,7 +21,7 @@ xdescribe('leetcode 235: find common ancestor of a binary search tree', () => {
         }
 
         return pStack[index - 1];
-    };
+    }
 
     function findNode(root: TreeNode | null, val: number, stack: (TreeNode | null)[]) {
         if (!root) {
@@ -37,12 +37,9 @@ xdescribe('leetcode 235: find common ancestor of a binary search tree', () => {
         if (val < root.val) {
             findNode(root.left, val, stack);
         }
-        
+
         findNode(root.right, val, stack);
     }
 
-
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

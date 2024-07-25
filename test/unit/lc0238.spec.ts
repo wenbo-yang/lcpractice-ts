@@ -6,18 +6,18 @@ xdescribe('leetcode 238: product array except itself', () => {
 
         for (let i = 1; i < nums.length; ++i) {
             l[i] = l[i - 1] * nums[i - 1];
-        }   
-          
+        }
+
         for (let i = nums.length - 2; i >= 0; --i) {
             r[i] = r[i + 1] * nums[i + 1];
         }
-              
+
         for (let i = 0; i < nums.length; ++i) {
             retVal[i] = l[i] * r[i];
         }
-        
+
         return retVal;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
