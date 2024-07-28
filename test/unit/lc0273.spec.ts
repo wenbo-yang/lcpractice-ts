@@ -105,7 +105,7 @@ xdescribe('leetcode 273: number to words', () => {
 
             const single = this.prounceSingleDigit(num[1])
 
-            return this.doubleDigitMap[num[0]] + single ? ' ' + single : '';
+            return this.doubleDigitMap[Number(num[0])] + single ? ' ' + single : '';
         }
     }
 
