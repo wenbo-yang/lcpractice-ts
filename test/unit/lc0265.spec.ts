@@ -1,16 +1,18 @@
 xdescribe('leetcode 265: paint houses ', () => {
     function minCost(costs: number[][]): number {
-        if(costs != null && costs.length == 0) {
+        if (costs != null && costs.length == 0) {
             return 0;
         }
 
         const dp = costs;
-        let min1 = -1, min2 = -1;
+        let min1 = -1,
+            min2 = -1;
 
         for (let i = 0; i < dp.length; i++) {
             let last1 = min1;
             let last2 = min2;
-            min1 = -1; min2 = -1;
+            min1 = -1;
+            min2 = -1;
             for (let j = 0; j < dp[i].length; j++) {
                 if (j != last1) {
                     dp[i][j] += last1 < 0 ? 0 : dp[i - 1][last1];

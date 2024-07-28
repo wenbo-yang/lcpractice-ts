@@ -8,8 +8,7 @@ xdescribe('leetcode 267: palindrome permutation', () => {
 
             if ((map.get(c) || 1) % 2 === 0) {
                 numberOfOddCount--;
-            }
-            else {
+            } else {
                 numberOfOddCount++;
             }
         }
@@ -19,8 +18,8 @@ xdescribe('leetcode 267: palindrome permutation', () => {
         }
 
         let startChar = '';
-        for(const entry of map.entries()) {
-            if(entry[1] % 2 === 1) {
+        for (const entry of map.entries()) {
+            if (entry[1] % 2 === 1) {
                 map.set(entry[0], (map.get(entry[0]) || 1) - 1);
             }
         }
@@ -44,15 +43,11 @@ xdescribe('leetcode 267: palindrome permutation', () => {
                 continue;
             }
 
-            map.set(entry[0], (map.get(entry[0]) || 2 ) - 2);
+            map.set(entry[0], (map.get(entry[0]) || 2) - 2);
             permute(map, [entry[0], ...current, entry[0]], result, length);
-            map.set(entry[0], (map.get(entry[0]) || 0 ) + 2);
+            map.set(entry[0], (map.get(entry[0]) || 0) + 2);
         }
     }
 
-    
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

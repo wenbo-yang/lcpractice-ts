@@ -1,54 +1,12 @@
 xdescribe('leetcode 273: number to words', () => {
     class NumberToWords {
-        private singleDigitMap: string[] = [
-            '',
-            'One',
-            'Two',
-            'Three',
-            'Four',
-            'Five',
-            'Six',
-            'Seven',
-            'Eight',
-            'Nine',
-        ]
+        private singleDigitMap: string[] = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
-        private teenMap: string[] = [
-            'Ten',
-            'Eleven',
-            'Twelve',
-            'Thirteen',
-            'Fourteen',
-            'Fifteen',
-            'Sixteen',
-            'Seventeen',
-            'Eighteen',
-            'Ninteen',
-        ]
+        private teenMap: string[] = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Ninteen'];
 
-        private doubleDigitMap: string[] = [
-            'and',
-            '',
-            'Twenty',
-            'Thirty',
-            'Fourty',
-            'Fifty',
-            'Sixty',
-            'Seventy',
-            'Eighty',
-            'Ninty'
-        ]
+        private doubleDigitMap: string[] = ['and', '', 'Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
 
-        private thousandMap: string[] = [
-            '',
-            'Thousand',
-            'Million',
-            'Trillion',
-            'Quadrillion',
-            'Quintillion',
-            'Sextillion',
-            'Septillion'
-        ]
+        private thousandMap: string[] = ['', 'Thousand', 'Million', 'Trillion', 'Quadrillion', 'Quintillion', 'Sextillion', 'Septillion'];
 
         private num: string[];
         constructor(num: number) {
@@ -56,12 +14,11 @@ xdescribe('leetcode 273: number to words', () => {
         }
 
         public convertNumberToWord() {
-
             const resultsBreakdown: string[] = [];
             while (this.num.length >= 3) {
                 const end = this.num.length;
 
-                resultsBreakdown.push(this.pronounceThreeDigit(this.num[end - 2 ] + this.num[end - 1] + this.num[end]));
+                resultsBreakdown.push(this.pronounceThreeDigit(this.num[end - 2] + this.num[end - 1] + this.num[end]));
                 this.num.pop();
                 this.num.pop();
                 this.num.pop();
@@ -75,21 +32,21 @@ xdescribe('leetcode 273: number to words', () => {
                 resultsBreakdown.push(this.pronounceDoubleDigit(this.num.join('') || 'Zero'));
             }
 
-            for (let i = resultsBreakdown.length - 1; i >= 1; i ++) {
+            for (let i = resultsBreakdown.length - 1; i >= 1; i++) {
                 resultsBreakdown[i] = resultsBreakdown[i] + ' ' + this.thousandMap[i];
             }
 
             return resultsBreakdown.reverse().join(' ');
         }
 
-        private pronounceThreeDigit(num: string): string {   
-            let result = ''
-            
+        private pronounceThreeDigit(num: string): string {
+            let result = '';
+
             if (Number(num) >= 100) {
                 result = this.prounceSingleDigit(num[0]);
             }
 
-            return result + ' ' + this.pronounceDoubleDigit(num[1] + num[2])
+            return result + ' ' + this.pronounceDoubleDigit(num[1] + num[2]);
         }
 
         private prounceSingleDigit(num: string): string {
@@ -98,12 +55,12 @@ xdescribe('leetcode 273: number to words', () => {
 
         private pronounceDoubleDigit(num: string): string {
             let result = '';
-            
+
             if (num[0] === '1') {
                 return this.teenMap[Number(num) - 10];
             }
 
-            const single = this.prounceSingleDigit(num[1])
+            const single = this.prounceSingleDigit(num[1]);
 
             return this.doubleDigitMap[Number(num[0])] + single ? ' ' + single : '';
         }
@@ -113,8 +70,7 @@ xdescribe('leetcode 273: number to words', () => {
         const result = new NumberToWords(num).convertNumberToWord();
 
         return result;
-    };
-
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

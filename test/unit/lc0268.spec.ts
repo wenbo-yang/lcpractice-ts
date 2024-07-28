@@ -7,8 +7,8 @@ xdescribe('leetcode 268: missing number', () => {
             sum += nums[i];
         }
 
-        return (max + 1) * (nums.length - 1) / 2 - sum;        
-    };
+        return ((max + 1) * (nums.length - 1)) / 2 - sum;
+    }
 
     function missingNumberXor(nums: number[]): number {
         let result = 0;
@@ -17,7 +17,7 @@ xdescribe('leetcode 268: missing number', () => {
         }
 
         return result;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

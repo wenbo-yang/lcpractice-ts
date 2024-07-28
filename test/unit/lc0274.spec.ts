@@ -9,9 +9,9 @@ xdescribe('leetcode 274: hIndex', () => {
         }
 
         return citations.length;
-    };
+    }
 
     it('test case 1 Input:, citations = [3,0,6,1,5], output 3 ', () => {
-        expect(hIndex([3,0,6,1,5])).toEqual(3);
+        expect(hIndex([3, 0, 6, 1, 5])).toEqual(3);
     });
 });

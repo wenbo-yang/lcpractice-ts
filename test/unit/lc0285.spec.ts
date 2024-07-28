@@ -1,14 +1,14 @@
-import {TreeNode} from './commonLibs';
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 285: in order successor of bst', () => {
-    function inorderSuccessorInBinarySearchTree(root: TreeNode | null, target: number ): number | null {
+    function inorderSuccessorInBinarySearchTree(root: TreeNode | null, target: number): number | null {
         if (!root) {
             return null;
         }
-    
-        const stack: (TreeNode | null)[] = []
+
+        const stack: (TreeNode | null)[] = [];
         let temp: TreeNode | null = root;
-        
+
         while (temp) {
             stack.push(temp);
             if (temp.val === target) {
@@ -17,7 +17,6 @@ xdescribe('leetcode 285: in order successor of bst', () => {
 
             if (temp.val > target) {
                 temp = temp.left;
-                
             } else {
                 temp = temp.right;
             }
@@ -28,7 +27,7 @@ xdescribe('leetcode 285: in order successor of bst', () => {
         }
 
         if ((stack[stack.length - 2]?.val || Number.MIN_SAFE_INTEGER) > target) {
-            return stack[stack.length - 2]?.val || null
+            return stack[stack.length - 2]?.val || null;
         }
 
         return findSmallest(stack[stack.length - 1]?.right || null);
@@ -40,14 +39,14 @@ xdescribe('leetcode 285: in order successor of bst', () => {
         }
 
         if (isLeafNode(root)) {
-            return root.val
+            return root.val;
         }
 
         return findSmallest(root.left);
     }
 
     function isLeafNode(root: TreeNode | null): boolean {
-        return !(root?.left || root?.right)
+        return !(root?.left || root?.right);
     }
 
     function inorderSuccessorInBinarySearchTreeRecurrsion(root: TreeNode | null, target: number): number | null {
@@ -71,7 +70,3 @@ xdescribe('leetcode 285: in order successor of bst', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-

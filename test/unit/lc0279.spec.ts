@@ -7,9 +7,9 @@ xdescribe('leetcode 279: least number of squares', () => {
                 df[i] = Math.min(df[i], df[i - j * j] + 1);
             }
         }
-            
+
         return df[n];
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

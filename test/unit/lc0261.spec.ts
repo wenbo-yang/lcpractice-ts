@@ -1,8 +1,8 @@
 xdescribe('leetcode 261: description', () => {
     function validTree(n: number, edges: number[][]): boolean {
-        // 
+        //
         //      0
-        //   1  - 2 
+        //   1  - 2
         // | |    |
         //    -  - 3
         // 4
@@ -20,7 +20,7 @@ xdescribe('leetcode 261: description', () => {
         visited.add(node);
 
         const children = map.get(node) || [];
-        
+
         for (const child of children) {
             if (!dfs(map, child, visited)) {
                 return false;
@@ -32,5 +32,3 @@ xdescribe('leetcode 261: description', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

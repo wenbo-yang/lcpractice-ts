@@ -3,7 +3,7 @@ xdescribe('leetcode 281: zigzag iterator', () => {
         private nums: Map<number, number[]> = new Map();
         private rowIter: IterableIterator<number>;
         private currCol = 0;
-        
+
         constructor(nums: number[][]) {
             let index = 0;
             for (const row of nums) {
@@ -33,9 +33,7 @@ xdescribe('leetcode 281: zigzag iterator', () => {
 
             return value;
         }
-
     }
-
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

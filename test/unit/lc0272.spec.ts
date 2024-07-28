@@ -1,20 +1,20 @@
-import {MaxHeap, TreeNode} from './commonLibs';
+import { MaxHeap, TreeNode } from './commonLibs';
 
 xdescribe('leetcode 272: closest k values', () => {
     function closestKValuesInBinarySearchTree(root: TreeNode | null, targetValue: number, k: number): number[] {
-        const comparator = function (a: {diff: number, value: number}, b: {diff: number, value: number}) {
-            if (a.diff - b.diff > 0) return 1; 
+        const comparator = function (a: { diff: number; value: number }, b: { diff: number; value: number }) {
+            if (a.diff - b.diff > 0) return 1;
             if (a.diff - b.diff < 0) return -1;
             return 0;
-        }
+        };
 
-        const maxHeap = new MaxHeap<{diff: number, value: number}>(comparator);
+        const maxHeap = new MaxHeap<{ diff: number; value: number }>(comparator);
 
         findClosestKValuesHelper(root, targetValue, k, maxHeap);
 
         const result: number[] = [];
-        
-        while(maxHeap.length > 0) {
+
+        while (maxHeap.length > 0) {
             const top = maxHeap.pop();
             result.push(top.value);
         }
@@ -22,30 +22,27 @@ xdescribe('leetcode 272: closest k values', () => {
         return result;
     }
 
-    function findClosestKValuesHelper(root: TreeNode | null, targetValue: number, k: number, maxHeap: MaxHeap<{ diff: number; value: number; }>) {
+    function findClosestKValuesHelper(root: TreeNode | null, targetValue: number, k: number, maxHeap: MaxHeap<{ diff: number; value: number }>) {
         if (!root) {
             return;
         }
 
         const val = root.val;
         if (maxHeap.length < k) {
-            maxHeap.push({diff: Math.abs(val - targetValue), value: val});
-        }
-        else if (maxHeap.length === k) {
+            maxHeap.push({ diff: Math.abs(val - targetValue), value: val });
+        } else if (maxHeap.length === k) {
             const top = maxHeap.peek();
             if (Math.abs(val - targetValue) < top.diff) {
                 maxHeap.pop();
-                maxHeap.push({diff: Math.abs(val - targetValue), value: val});
+                maxHeap.push({ diff: Math.abs(val - targetValue), value: val });
             }
         }
 
         findClosestKValuesHelper(root.left, targetValue, k, maxHeap);
         findClosestKValuesHelper(root.right, targetValue, k, maxHeap);
     }
-    
 
     function closestKValuesInBinarySearchTreeDfs(root: TreeNode | null, targetValue: number, k: number): number[] {
-
         const bstArray: number[] = [];
 
         inorderTraversal(root, bstArray);
@@ -54,7 +51,7 @@ xdescribe('leetcode 272: closest k values', () => {
     }
 
     function inorderTraversal(root: TreeNode | null, bstArray: number[]) {
-        if(!root) {
+        if (!root) {
             return;
         }
 
@@ -65,6 +62,3 @@ xdescribe('leetcode 272: closest k values', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

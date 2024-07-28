@@ -7,7 +7,7 @@ xdescribe('leetcode 275: description', () => {
         }
 
         return citations.length;
-    };
+    }
 
     function hIndexBinarySearch(citations: number[]): number {
         let l = 0;
@@ -17,9 +17,8 @@ xdescribe('leetcode 275: description', () => {
             const pivot = Math.floor((l + r) / 2);
 
             if (citations[citations.length - pivot - 1] <= pivot) {
-                r  = pivot;
-            }
-            else {
+                r = pivot;
+            } else {
                 l = pivot + 1;
             }
         }

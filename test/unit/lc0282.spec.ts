@@ -1,12 +1,12 @@
-    xdescribe('leetcode 282: expression add operator', () => {
+xdescribe('leetcode 282: expression add operator', () => {
     function addOperators(num: string, target: number): string[] {
         const current: string[] = [];
         const result: string[] = [];
-        
+
         dfs(num, target, 0, '', 0, 0, result);
 
         return result;
-    };
+    }
 
     function dfs(num: string, target: number, index: number, expression: string, prev: number, curr: number, result: string[]) {
         if (index === num.length) {
@@ -37,12 +37,6 @@
             dfs(num, target, index + i, expression + '*' + left, prev * leftNum, curr - prev + prev * leftNum, result);
         }
     }
-    
-
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

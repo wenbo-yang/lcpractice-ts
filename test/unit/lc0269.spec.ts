@@ -1,8 +1,8 @@
 xdescribe('leetcode 269: alien dictionary', () => {
     //   w
     // e
-    //  r  
-    //   f 
+    //  r
+    //   f
     //    t
     function alienDictionary(dict: string[]): string {
         const adjMap = new Map<string, Set<string>>();
@@ -34,5 +34,3 @@ xdescribe('leetcode 269: alien dictionary', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
