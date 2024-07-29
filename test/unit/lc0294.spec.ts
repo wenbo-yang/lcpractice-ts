@@ -1,6 +1,6 @@
 xdescribe('leetcode 294: flip game', () => {
     class Solution {
-        private n: number;
+        private n: number = 0;
         private memo = new Map<number, boolean>();
     
         public canWin(currentState: string): boolean {

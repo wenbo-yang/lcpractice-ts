@@ -5,8 +5,8 @@ xdescribe('leetcode 291: word pattern II', () => {
         private d: Map<string, string> = new Map();
         private pattern: string = '';
         private s: string = '';
-        private m;
-        private n;
+        private m: number = 0;
+        private n: number = 0;
     
         public wordPatternMatch(pattern: string, s: string): boolean {
 
