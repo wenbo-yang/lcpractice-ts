@@ -1,4 +1,4 @@
-import { TreeNode } from './commonLibs';
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 230: description', () => {
     function kthSmallest(root: TreeNode | null, k: number): number {

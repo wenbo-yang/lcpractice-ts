@@ -1,4 +1,4 @@
-import { ListNode, SingleLinkedList } from './commonLibs';
+import { ListNode, SingleLinkedList } from '../commonLibs';
 
 xdescribe('leetcode 206: reverse linked list', () => {
     function reverseList(head: ListNode | null): ListNode | null {

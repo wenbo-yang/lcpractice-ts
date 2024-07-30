@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "tests": "npx jest --runInBand --testPathPattern=./test/unit --testPathIgnorePatterns=./test/unit/lc1_to_200",
+        "tests": "npx jest --runInBand --testPathPattern=./test/unit --testPathIgnorePatterns=./test/unit/lc_archive*",
         "build": "npx tsc",
         "start": "node dist/app.js",
         "watch": "npx tsc --watch",

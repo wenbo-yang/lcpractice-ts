@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from './commonLibs';
+import { BinaryTree, TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 257: binary tree path', () => {
     function binaryTreePaths(root: TreeNode | null): string[] {

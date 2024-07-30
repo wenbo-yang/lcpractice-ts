@@ -1,4 +1,4 @@
-import { TreeNode } from './commonLibs';
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 226: ', () => {
     function invertTree(root: TreeNode | null): TreeNode | null {

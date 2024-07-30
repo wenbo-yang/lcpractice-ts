@@ -1,4 +1,4 @@
-import { Queue } from './commonLibs';
+import { Queue } from '../commonLibs';
 
 xdescribe('leetcode 211: search and find', () => {
     class TrieNode {

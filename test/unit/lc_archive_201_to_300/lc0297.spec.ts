@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from "./commonLibs";
+import { BinaryTree, TreeNode } from "../commonLibs";
 
 xdescribe('leetcode 297: serialize and deserialize a tree', () => {
     function serialize(root: TreeNode | null): string {

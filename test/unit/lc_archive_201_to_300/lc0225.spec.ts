@@ -1,4 +1,4 @@
-import { Queue } from './commonLibs';
+import { Queue } from '../commonLibs';
 
 xdescribe('leetcode 225: implement stack with two queues', () => {
     class MyStack {

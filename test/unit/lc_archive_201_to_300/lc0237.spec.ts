@@ -1,4 +1,4 @@
-import { ListNode, SingleLinkedList } from './commonLibs';
+import { ListNode, SingleLinkedList } from '../commonLibs';
 
 xdescribe('leetcode 237: delete node without access to head', () => {
     function deleteNode(node: ListNode | null): void {

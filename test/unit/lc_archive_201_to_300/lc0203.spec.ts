@@ -1,4 +1,4 @@
-import { ListNode, SingleLinkedList } from './commonLibs';
+import { ListNode, SingleLinkedList } from '../commonLibs';
 
 xdescribe('leetcode 203: remove linked list elements', () => {
     function removeElements(head: ListNode | null, val: number): ListNode | null {

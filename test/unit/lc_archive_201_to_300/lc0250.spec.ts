@@ -1,4 +1,4 @@
-import { TreeNode } from './commonLibs';
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 250: description', () => {
     function countUnivalueSubTrees(root: TreeNode | null): number {

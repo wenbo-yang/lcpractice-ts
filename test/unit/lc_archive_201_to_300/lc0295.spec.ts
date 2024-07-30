@@ -1,4 +1,4 @@
-import {MaxHeap, MinHeap} from './commonLibs'
+import {MaxHeap, MinHeap} from '../commonLibs'
 xdescribe('leetcode 295: running median', () => {
     class MedianFinder {
         private maxHeap = new MaxHeap<number>();

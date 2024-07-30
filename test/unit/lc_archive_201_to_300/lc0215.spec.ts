@@ -1,4 +1,4 @@
-import { MinHeap } from './commonLibs';
+import { MinHeap } from '../commonLibs';
 
 xdescribe('leetcode 215: kth largest in an array', () => {
     function findKthLargest(nums: number[], k: number): number {

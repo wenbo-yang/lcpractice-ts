@@ -1,4 +1,4 @@
-import { TreeNode } from './commonLibs';
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 222: description', () => {
     function countNodes(root: TreeNode | null): number {

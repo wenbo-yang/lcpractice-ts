@@ -1,4 +1,4 @@
-import { ListNode } from './commonLibs';
+import { ListNode } from '../commonLibs';
 
 xdescribe('leetcode 234: description', () => {
     function isPalindrome(head: ListNode | null): boolean {

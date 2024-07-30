@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from './commonLibs';
+import { BinaryTree, TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 270: closes value from bst', () => {
     function closestBinarySearchTreeValue(root: TreeNode | null, target: number): number {

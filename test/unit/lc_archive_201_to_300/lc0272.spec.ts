@@ -1,4 +1,4 @@
-import { MaxHeap, TreeNode } from './commonLibs';
+import { MaxHeap, TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 272: closest k values', () => {
     function closestKValuesInBinarySearchTree(root: TreeNode | null, targetValue: number, k: number): number[] {

@@ -1,4 +1,4 @@
-import { Queue } from './commonLibs';
+import { Queue } from '../commonLibs';
 
 xdescribe('leetcode 286: walls and gates', () => {
     function fillRoomWithDistanceToNearestGates(grid: number[][]): void {

@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from "./commonLibs";
+import { BinaryTree, TreeNode } from "../commonLibs";
 
 xdescribe('leetcode 298: binary tree longest consecutive sequence', () => {
     function longestConsecutiveSequence(root: TreeNode | null): number {

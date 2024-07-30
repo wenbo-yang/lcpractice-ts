@@ -1,4 +1,4 @@
-import {Queue} from './commonLibs';
+import {Queue} from '../commonLibs';
 
 xdescribe('leetcode 296: description', () => {
     function bestMeetingPoint(grid: number[][]): number {        

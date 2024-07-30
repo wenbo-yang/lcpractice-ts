@@ -1,4 +1,4 @@
-import { TreeNode } from './commonLibs';
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 285: in order successor of bst', () => {
     function inorderSuccessorInBinarySearchTree(root: TreeNode | null, target: number): number | null {

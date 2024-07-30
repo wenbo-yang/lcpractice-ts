@@ -1,4 +1,4 @@
-import { Queue } from './commonLibs';
+import { Queue } from '../commonLibs';
 
 xdescribe('leetcode 239: sliding window maximum', () => {
     class MonotonicQueue {

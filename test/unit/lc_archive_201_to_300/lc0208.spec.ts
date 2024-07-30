@@ -1,4 +1,4 @@
-import { Trie } from './commonLibs';
+import { Trie } from '../commonLibs';
 
 xdescribe('leetcode 208: prefix tree', () => {
     it('test case 1 Input:, target = 5, output 2 ', () => {
