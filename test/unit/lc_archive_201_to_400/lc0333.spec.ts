@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from "../commonLibs";
 
 xdescribe('leetcode 333: largest bst subtree', () => {
     function largestBSTSubtree(root: TreeNode | null) : number {

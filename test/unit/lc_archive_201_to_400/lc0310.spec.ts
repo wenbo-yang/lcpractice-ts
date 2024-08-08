@@ -1,4 +1,4 @@
-import { Queue } from "./commonLibs";
+import { Queue } from "../commonLibs";
 
 xdescribe('leetcode 310: description', () => {
     function findMinHeightTrees(n: number, edges: number[][]): number[] {

@@ -1,4 +1,4 @@
-import {Queue} from './commonLibs';
+import {Queue} from '../commonLibs';
 xdescribe('leetcode 317: shortest distance to all buildings', () => {
     function shortestDistance(grid: number[][]): number {
         const buildingCount = new Array<Array<number>>(grid.length).fill([]).map(r => new Array<number>(grid[0].length).fill(0));

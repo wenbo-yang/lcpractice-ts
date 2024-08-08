@@ -1,4 +1,4 @@
-import {MinHeap} from './commonLibs';
+import {MinHeap} from '../commonLibs';
 
 xdescribe('leetcode 347: ', () => {
     function topKFrequent(nums: number[], k: number): number[] {

@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from "../commonLibs";
 
 xdescribe('leetcode 314: binary tree vertical order traversal', () => {
     function binaryTreeVerticalOrderTraversal(root: TreeNode | null): number[][] {

@@ -1,4 +1,4 @@
-import { MinHeap } from "./commonLibs";
+import { MinHeap } from "../commonLibs";
 
 xdescribe('leetcode 313: super ugly number', () => {
     // try heap

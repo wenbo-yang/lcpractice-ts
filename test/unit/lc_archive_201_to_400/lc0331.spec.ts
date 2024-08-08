@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from "../commonLibs";
 
 xdescribe('leetcode 331: verify pre order serialization', () => {
     function isValidSerialization(preorder: string): boolean {

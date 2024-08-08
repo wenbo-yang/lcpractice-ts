@@ -1,4 +1,4 @@
-import {ListNode} from './commonLibs'
+import {ListNode} from '../commonLibs'
 
 xdescribe('leetcode 328: odd even linked list', () => {
     function oddEvenListSwappingValue(head: ListNode | null): ListNode | null {

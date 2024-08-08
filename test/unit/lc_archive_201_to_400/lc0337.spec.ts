@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from "./commonLibs";
+import { BinaryTree, TreeNode } from "../commonLibs";
 xdescribe('leetcode 337: description', () => {
     function rob(root: TreeNode | null): number {
         if (!root) {

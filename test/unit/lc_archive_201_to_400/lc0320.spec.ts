@@ -1,4 +1,4 @@
-import {Queue} from './commonLibs';
+import {Queue} from '../commonLibs';
 
 xdescribe('leetcode 320: generalized abbreviations', () => {
     function generalizedAbbrev(word: string): string[] {
