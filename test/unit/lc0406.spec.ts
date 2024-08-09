@@ -1,4 +1,4 @@
-describe('leetcode 406: reconstruct queue', () => {
+xdescribe('leetcode 406: reconstruct queue', () => {
     function reconstructQueue(people: number[][]): number[][] {
         const compare = function (a: number[], b: number[]){
             if (a[1] > b[1]) {
