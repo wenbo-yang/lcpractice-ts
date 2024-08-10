@@ -28,6 +28,31 @@ xdescribe('leetcode 413: Arithmetic slices', () => {
         return sumArrayMem.size;
     };
 
+    function numberOfArithmeticSlicesTwoPointer(nums: number[]): number {
+        let l = 0; 
+        let r = 2;
+
+        let result = 0;
+
+        while (r < nums.length) {
+            if ((nums[r] - nums[r - 1]) === (nums[r - 1] - nums[r - 2])) {
+                r++;
+                continue;
+            }
+            else {
+                if (r - l >= 3) {
+                    const currentWindow = r - l;
+                    result += ((currentWindow - 2) + 1) * (currentWindow - 2) / 2
+                }
+                l = r - 1;
+                r = l + 2;
+                continue;
+            }
+        }
+
+        return result;
+    }
+
     function canExtend(nums: number[], boundingIndices: number[]) {
         return boundingIndices[1] + 1 < nums.length && (nums[boundingIndices[1]] - nums[boundingIndices[1] - 1]) === (nums[boundingIndices[1] + 1] - nums[boundingIndices[1]])
     }
