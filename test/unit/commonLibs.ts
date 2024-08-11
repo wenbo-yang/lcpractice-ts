@@ -36,6 +36,51 @@ export class SingleLinkedList {
     }
 }
 
+
+export class DoubleLinkedListNode {
+    public val: number;
+    public next: DoubleLinkedListNode | null;
+    public prev: DoubleLinkedListNode | null;
+    constructor(val?: number, next?: DoubleLinkedListNode | null, prev?: DoubleLinkedListNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+        this.prev = prev === undefined ? null : prev;
+    }
+}
+
+export class DoubleLinkedList {
+    public head: DoubleLinkedListNode | null;
+    public tail: DoubleLinkedListNode | null;
+    constructor(nums: number[]) {
+        if (nums.length === 0) {
+            this.head = null;
+        } else {
+            this.head = new DoubleLinkedListNode(nums[0]);
+            let temp = this.head;
+            let prev = this.head.prev;
+            for (let i = 1; i < nums.length; i++) {
+                temp.next = new DoubleLinkedListNode(nums[i]);
+                temp.prev = prev;
+                prev = temp;
+                temp = temp.next;
+            }
+
+            this.tail = prev;
+        }
+    }
+
+    public static convertToArray(head: ListNode | null): number[] {
+        let temp: ListNode | null = head;
+        const array: number[] = [];
+        while (temp) {
+            array.push(temp.val);
+            temp = temp.next;
+        }
+
+        return array;
+    }
+}
+
 export class TreeNode {
     val: number;
     left: TreeNode | null;
@@ -46,6 +91,15 @@ export class TreeNode {
         this.right = right === undefined ? null : right;
     }
 }
+
+export class NTreeNode {
+    val: number;
+    children: NTreeNode[] = []
+    constructor(val?: number, children?: NTreeNode[]) {
+        this.children = children || [];
+    }
+}
+
 
 export class Queue<T> {
     private queuePointer = 0;
