@@ -38,7 +38,7 @@ export class SingleLinkedList {
 
 
 export class DoubleLinkedListNode {
-    public val: number;
+    public val: number = 0;
     public next: DoubleLinkedListNode | null;
     public prev: DoubleLinkedListNode | null;
     constructor(val?: number, next?: DoubleLinkedListNode | null, prev?: DoubleLinkedListNode | null) {
@@ -49,8 +49,8 @@ export class DoubleLinkedListNode {
 }
 
 export class DoubleLinkedList {
-    public head: DoubleLinkedListNode | null;
-    public tail: DoubleLinkedListNode | null;
+    public head: DoubleLinkedListNode | null = null;
+    public tail: DoubleLinkedListNode | null = null;
     constructor(nums: number[]) {
         if (nums.length === 0) {
             this.head = null;
@@ -97,6 +97,7 @@ export class NTreeNode {
     children: NTreeNode[] = []
     constructor(val?: number, children?: NTreeNode[]) {
         this.children = children || [];
+        this.val = val === undefined ? 0 : val;
     }
 }
 

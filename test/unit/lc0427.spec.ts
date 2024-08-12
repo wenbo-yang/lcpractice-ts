@@ -64,7 +64,7 @@ xdescribe('leetcode 427: construct quad tree', () => {
         return new _Node(false, false, topLeft, topRight, bottomLeft, bottomRight);
     }
 
-    function outofBounds(boundingRect: BoundingRect, grid) {
+    function outofBounds(boundingRect: BoundingRect, grid: number[][]) {
         return boundingRect.topLeft.r > boundingRect.bottomRight.r || boundingRect.topLeft.c > boundingRect.bottomRight.c ||
         boundingRect.topLeft.r >= grid.length || boundingRect.topLeft.r < 0 || boundingRect.topLeft.c >= grid[0].length || boundingRect.topLeft.c < 0 ||
         boundingRect.bottomRight.r >= grid.length || boundingRect.bottomRight.r < 0 || boundingRect.bottomRight.c >= grid[0].length || boundingRect.bottomRight.c < 0;

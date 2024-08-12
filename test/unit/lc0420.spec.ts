@@ -1,6 +1,6 @@
 xdescribe('leetcode 420: description', () => {
     function strongPasswordChecker(password: string): number {
-    
+        throw new Error("");
     };
 
 
