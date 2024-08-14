@@ -12,7 +12,7 @@ xdescribe('leetcode 345: description', () => {
                 continue;
             }
 
-            if (!vowels.includes(sArray[r])){
+            if (!vowels.includes(sArray[r])) {
                 r--;
                 continue;
             }
@@ -24,15 +24,13 @@ xdescribe('leetcode 345: description', () => {
         }
 
         return sArray.join();
-    };
+    }
 
     function swap(l: number, r: number, sArray: string[]) {
         const temp = sArray[l];
         sArray[l] = sArray[r];
-        sArray[r] = temp
+        sArray[r] = temp;
     }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

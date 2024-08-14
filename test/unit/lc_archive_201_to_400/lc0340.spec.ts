@@ -8,10 +8,9 @@ describe('leetcode 340: longest substring with at most k distinct characters ', 
             addToDistinctCharMap(s[r], r, distinctCharMap);
 
             if (distinctCharMap.size === k + 1) {
-                currentResult = Math.max((r - l), currentResult);
+                currentResult = Math.max(r - l, currentResult);
                 l = removeCharUntilOnlyKExistInMap(s, l, distinctCharMap, k);
             }
-
 
             r++;
         }
@@ -19,7 +18,7 @@ describe('leetcode 340: longest substring with at most k distinct characters ', 
         return currentResult || s.length;
     }
 
-    function addToDistinctCharMap(char: string, index: number ,distinctCharMap: Map<string, Set<number>>) {
+    function addToDistinctCharMap(char: string, index: number, distinctCharMap: Map<string, Set<number>>) {
         const indices = distinctCharMap.get(char) || new Set<number>();
         indices.add(index);
         distinctCharMap.set(char, indices);
@@ -27,7 +26,7 @@ describe('leetcode 340: longest substring with at most k distinct characters ', 
 
     function removeCharUntilOnlyKExistInMap(s: string, index: number, distinctCharMap: Map<string, Set<number>>, k: number): number {
         while (distinctCharMap.size > k) {
-            const indices = distinctCharMap.get(s[index])
+            const indices = distinctCharMap.get(s[index]);
             if (indices) {
                 indices.delete(index);
             }
@@ -35,7 +34,7 @@ describe('leetcode 340: longest substring with at most k distinct characters ', 
             if (indices && indices.size === 0) {
                 distinctCharMap.delete(s[index]);
             }
-            
+
             index++;
         }
 
@@ -54,5 +53,3 @@ describe('leetcode 340: longest substring with at most k distinct characters ', 
         expect(longestSubstringWithAtMostKChars('eceba', 5)).toEqual(5);
     });
 });
-
-

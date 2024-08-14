@@ -11,11 +11,11 @@ xdescribe('leetcode 409: longest palindrome', () => {
                 longest += 2;
             }
         }
-        
-        const hasLeftOverOddLetters = evenLettersMap.find(c => c === false);
+
+        const hasLeftOverOddLetters = evenLettersMap.find((c) => c === false);
 
         return hasLeftOverOddLetters ? longest + 1 : longest;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

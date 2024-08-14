@@ -1,9 +1,9 @@
 xdescribe('leetcode 336: palindrome pairs', () => {
     function palindromePairs(words: string[]): number[][] {
         const results: number[][] = [];
-        
-        for(let i = 0; i < words.length; i++) {
-            for (let j = 0; j< words.length; j++) {
+
+        for (let i = 0; i < words.length; i++) {
+            for (let j = 0; j < words.length; j++) {
                 if (i === j) {
                     continue;
                 }
@@ -15,13 +15,13 @@ xdescribe('leetcode 336: palindrome pairs', () => {
         }
 
         return results;
-    };
+    }
 
     function isPalindrome(s: string): boolean {
         let l = 0;
         let r = s.length - 1;
 
-        while(l < r) {
+        while (l < r) {
             if (s[l] !== s[r]) {
                 return false;
             }

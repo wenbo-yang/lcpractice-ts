@@ -3,9 +3,9 @@ xdescribe('leetcode 321: description', () => {
         let result: number[] = [];
         const n1 = nums1.length;
         const n2 = nums2.length;
-        
+
         return result;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

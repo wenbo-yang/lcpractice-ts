@@ -1,6 +1,6 @@
 xdescribe('leetcode 418: description', () => {
     function numberOfWords(row: number, col: number, words: string[]): number {
-        if (words.find(w => w.length > col)) {
+        if (words.find((w) => w.length > col)) {
             return 0;
         }
 
@@ -13,15 +13,14 @@ xdescribe('leetcode 418: description', () => {
             if (canFit(currCol, col, wordLength)) {
                 currCol = fitIntoCol(currCol, wordLength);
                 index++;
-            }
-            else {
+            } else {
                 currRow++;
-                currCol = 0
+                currCol = 0;
                 continue;
             }
 
             // fitted the last one
-            if (index % words.length === words.length - 1) { 
+            if (index % words.length === words.length - 1) {
                 result++;
             }
         }
@@ -29,7 +28,7 @@ xdescribe('leetcode 418: description', () => {
         return result;
     }
 
-    function canFit(currCol: number, col: number, wordLength: number): boolean { 
+    function canFit(currCol: number, col: number, wordLength: number): boolean {
         if (currCol === 0) {
             return wordLength <= col;
         }
@@ -42,12 +41,8 @@ xdescribe('leetcode 418: description', () => {
             return wordLength;
         }
 
-        return currCol + 1 + wordLength
+        return currCol + 1 + wordLength;
     }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-

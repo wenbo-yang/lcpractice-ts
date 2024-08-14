@@ -1,7 +1,7 @@
 xdescribe('leetcode 292: nim game', () => {
     function canWinNim(n: number): boolean {
         return canWinNimHelper(n, true);
-    };
+    }
 
     function canWinNimHelper(n: number, isMyTurn: boolean): boolean {
         if (n <= 3) {
@@ -12,14 +12,8 @@ xdescribe('leetcode 292: nim game', () => {
     }
 
     function canWinNimFast(n: number) {
-        return (n % 4 !== 0)
+        return n % 4 !== 0;
     }
 
-    it('test case 1 Input:, target = 5, output 2 ', () => {
-
-    });
+    it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-

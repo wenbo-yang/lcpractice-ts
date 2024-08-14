@@ -1,4 +1,4 @@
-import { DoubleLinkedListNode } from "./commonLibs";
+import { DoubleLinkedListNode } from './commonLibs';
 
 xdescribe('leetcode 432: description', () => {
     class AllOne {
@@ -7,9 +7,8 @@ xdescribe('leetcode 432: description', () => {
         private maxKey = Number.MIN_SAFE_INTEGER;
         private minKey = Number.MAX_SAFE_INTEGER;
 
-        constructor() {
-        }
-    
+        constructor() {}
+
         inc(key: string): void {
             const currCount = this.valueCountMap.get(key) || 0;
             // add to incremented count
@@ -32,7 +31,7 @@ xdescribe('leetcode 432: description', () => {
             this.valueCountMap.set(key, currCount + 1);
             this.determineMaxMin(currCount + 1);
         }
-    
+
         dec(key: string): void {
             const currCount = this.valueCountMap.get(key) || 0;
             if (currCount) {
@@ -49,7 +48,7 @@ xdescribe('leetcode 432: description', () => {
                         }
                     }
                 }
-                
+
                 if (currCount - 1) {
                     const decCountSet = this.countValueMap.get(currCount - 1) || new Set();
                     decCountSet.add(key);
@@ -59,13 +58,13 @@ xdescribe('leetcode 432: description', () => {
                 this.determineMaxMin(currCount - 1);
             }
         }
-    
+
         getMaxKey(): string {
-            return this.countValueMap.get(this.maxKey)?.keys().next().value ||  ""
+            return this.countValueMap.get(this.maxKey)?.keys().next().value || '';
         }
-    
+
         getMinKey(): string {
-            return this.countValueMap.get(this.minKey)?.keys().next().value ||  ""
+            return this.countValueMap.get(this.minKey)?.keys().next().value || '';
         }
 
         private determineMaxMin(newCountInNode: number) {

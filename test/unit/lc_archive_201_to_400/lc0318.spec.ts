@@ -3,8 +3,8 @@ xdescribe('leetcode 318: maxProd', () => {
         const masks: number[] = new Array<number>(words.length);
         for (let i = 0; i < words.length; i++) {
             const word = words[i];
-            for(let j = 0; j < word.length; j++) {
-                masks[i] |= 1 << (word[j].charCodeAt(0) - 'a'.charCodeAt(0)) 
+            for (let j = 0; j < word.length; j++) {
+                masks[i] |= 1 << (word[j].charCodeAt(0) - 'a'.charCodeAt(0));
             }
         }
 
@@ -18,7 +18,7 @@ xdescribe('leetcode 318: maxProd', () => {
         }
 
         return maxProd;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

@@ -36,7 +36,6 @@ export class SingleLinkedList {
     }
 }
 
-
 export class DoubleLinkedListNode {
     public val: number = 0;
     public next: DoubleLinkedListNode | null;
@@ -94,13 +93,12 @@ export class TreeNode {
 
 export class NTreeNode {
     val: number;
-    children: NTreeNode[] = []
+    children: NTreeNode[] = [];
     constructor(val?: number, children?: NTreeNode[]) {
         this.children = children || [];
         this.val = val === undefined ? 0 : val;
     }
 }
-
 
 export class Queue<T> {
     private queuePointer = 0;

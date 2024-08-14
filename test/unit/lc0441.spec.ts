@@ -7,14 +7,14 @@ xdescribe('leetcode 441: description', () => {
         // d^2 + d - 2n = 2x
 
         // return (-1 + Math.floor(Math.sqrt(1 + (n) * 8))) / 2;
-        
+
         let l = 0;
         let r = n;
         let pivot = 0;
         while (true) {
             let pivot = Math.floor((r + l) / 2);
-            const c = straddle(pivot, n)
-            if (c === 0){
+            const c = straddle(pivot, n);
+            if (c === 0) {
                 break;
             }
 
@@ -27,21 +27,19 @@ xdescribe('leetcode 441: description', () => {
         }
 
         return pivot;
-    };
+    }
 
     function straddle(x: number, n: number): number {
-        if (x*(x+1)/2 > n && (x - 1)*(x)/2 <= n) {
+        if ((x * (x + 1)) / 2 > n && ((x - 1) * x) / 2 <= n) {
             return 0;
         }
 
-        if (x*(x+1)/2 < n) {
-            return -1
+        if ((x * (x + 1)) / 2 < n) {
+            return -1;
         }
 
         return 1;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

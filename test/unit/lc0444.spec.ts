@@ -10,7 +10,7 @@ xdescribe('leetcode 444: reconstruct sequence', () => {
                 ++indeg[b];
             }
         }
-        const q: number[] = indeg.map((v, i) => (v === 0 ? i : -1)).filter(v => v !== -1);
+        const q: number[] = indeg.map((v, i) => (v === 0 ? i : -1)).filter((v) => v !== -1);
         while (q.length === 1) {
             const i = q.pop()!;
             for (const j of g[i]) {

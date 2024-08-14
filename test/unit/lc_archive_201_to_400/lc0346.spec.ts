@@ -11,17 +11,14 @@ xdescribe('leetcode 346: moving average', () => {
             this.array.push(num);
             if (this.array.length <= this.window) {
                 this.average = (this.average * (this.array.length - 1) + num) / this.array.length;
-            }
-            else {
+            } else {
                 const prev = this.array.shift() || 0;
-                this.average = (this.average * (this.array.length) - prev + num) / this.array.length;
+                this.average = (this.average * this.array.length - prev + num) / this.array.length;
             }
 
-            return this.average
+            return this.average;
         }
     }
-
-
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

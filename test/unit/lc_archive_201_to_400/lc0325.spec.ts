@@ -1,6 +1,6 @@
 xdescribe('leetcode 325: maximum size sub array equals k', () => {
     function maxWindow(nums: number[], k: number): number {
-        // range sum; 
+        // range sum;
         const df = new Array<number>(nums.length);
         df[0] = nums[0];
         for (let i = 1; i < nums.length; i++) {
@@ -24,7 +24,7 @@ xdescribe('leetcode 325: maximum size sub array equals k', () => {
                 currentMax = Math.max(currentMax, sumIndex - i + 1);
             }
         }
-        
+
         return currentMax;
     }
 

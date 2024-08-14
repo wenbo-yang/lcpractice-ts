@@ -6,11 +6,11 @@ xdescribe('leetcode 341: flatten nested list iterator', () => {
         constructor(nestedList: any) {
             this.dfs(nestedList);
         }
-    
+
         hasNext(): boolean {
             return this.flattened[this.index] !== undefined;
         }
-    
+
         next(): number {
             return this.flattened[this.index++];
         }

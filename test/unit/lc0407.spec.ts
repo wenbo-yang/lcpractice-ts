@@ -1,6 +1,9 @@
 xdescribe('leetcode 407: description', () => {
     function trapRainWater(heightMap: number[][]): number {
-        let m = heightMap.length, n = heightMap[0].length, res = 0, mx = Number.MIN_SAFE_INTEGER;
+        let m = heightMap.length,
+            n = heightMap[0].length,
+            res = 0,
+            mx = Number.MIN_SAFE_INTEGER;
 
         // priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
         // vector<vector<bool>> visited(m, vector<bool>(n, false));
@@ -28,7 +31,7 @@ xdescribe('leetcode 407: description', () => {
         // return res;
 
         return 0;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

@@ -1,13 +1,13 @@
-import { TreeNode } from "../commonLibs";
+import { TreeNode } from '../commonLibs';
 
 xdescribe('leetcode 314: binary tree vertical order traversal', () => {
     function binaryTreeVerticalOrderTraversal(root: TreeNode | null): number[][] {
         const map = new Map<number, number[]>();
         const minMax = [0, 0];
 
-        binaryTraversalHelper(root, 0, minMax, map);        
+        binaryTraversalHelper(root, 0, minMax, map);
         const result: number[][] = [];
-        for(let i = minMax[0]; i <= minMax[1]; i++) {
+        for (let i = minMax[0]; i <= minMax[1]; i++) {
             result.push(Array.from(map.get(i) || []));
         }
 
@@ -37,5 +37,3 @@ xdescribe('leetcode 314: binary tree vertical order traversal', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

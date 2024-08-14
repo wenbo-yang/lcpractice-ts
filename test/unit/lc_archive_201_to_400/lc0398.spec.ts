@@ -1,6 +1,6 @@
 xdescribe('leetcode 398: random pick indices', () => {
     class Solution {
-        private numToIndicesMap = new Map<number, number[]>()
+        private numToIndicesMap = new Map<number, number[]>();
         constructor(nums: number[]) {
             this.parse(nums);
         }
@@ -12,7 +12,7 @@ xdescribe('leetcode 398: random pick indices', () => {
                 this.numToIndicesMap.set(nums[i], indices);
             }
         }
-    
+
         public pick(target: number): number {
             const indices = this.numToIndicesMap.get(target);
 
@@ -20,7 +20,7 @@ xdescribe('leetcode 398: random pick indices', () => {
                 throw new Error('not found');
             }
 
-            return indices[Math.floor(Math.random() * indices.length)]
+            return indices[Math.floor(Math.random() * indices.length)];
         }
     }
 

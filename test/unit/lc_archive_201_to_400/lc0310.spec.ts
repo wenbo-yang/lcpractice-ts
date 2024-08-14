@@ -1,4 +1,4 @@
-import { Queue } from "../commonLibs";
+import { Queue } from '../commonLibs';
 
 xdescribe('leetcode 310: description', () => {
     function findMinHeightTrees(n: number, edges: number[][]): number[] {
@@ -7,10 +7,11 @@ xdescribe('leetcode 310: description', () => {
         }
 
         const g = new Array<Array<number>>(n).fill([]);
-        
+
         const degree = new Array<number>(n);
         for (const e of edges) {
-            let a = e[0], b = e[1];
+            let a = e[0],
+                b = e[1];
             g[a].push(b);
             g[b].push(a);
             ++degree[a];
@@ -23,7 +24,7 @@ xdescribe('leetcode 310: description', () => {
                 queue.enque(i);
             }
         }
-        
+
         let ans: number[] = [];
         while (queue.length !== 0) {
             ans = [];
@@ -38,7 +39,7 @@ xdescribe('leetcode 310: description', () => {
             }
         }
         return ans;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

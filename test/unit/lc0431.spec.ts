@@ -1,11 +1,11 @@
-import {NTreeNode, TreeNode} from './commonLibs';
+import { NTreeNode, TreeNode } from './commonLibs';
 
 xdescribe('leetcode 431: encode decode n-nary tree', () => {
     function encode(root: NTreeNode | null): TreeNode | null {
         if (!root) {
-            return null
-        };
-        
+            return null;
+        }
+
         const res = new TreeNode(root.val);
         if (root.children && root.children.length > 0) {
             res.left = encode(root.children[0]);
@@ -23,9 +23,9 @@ xdescribe('leetcode 431: encode decode n-nary tree', () => {
 
     function decode(root: TreeNode): NTreeNode | null {
         if (!root) {
-            return null
+            return null;
         }
-        
+
         const res = new NTreeNode(root.val);
         let curr = root.left;
         while (curr) {
@@ -33,7 +33,7 @@ xdescribe('leetcode 431: encode decode n-nary tree', () => {
             if (child) {
                 res.children.push(child);
             }
-            
+
             curr = curr.right;
         }
         return res;

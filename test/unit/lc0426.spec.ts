@@ -5,12 +5,12 @@ xdescribe('leetcode 426: description', () => {
         const array: number[] = [];
 
         inorderTraversal(root, array);
-        
+
         const list = new DoubleLinkedList(array);
 
         const head = list.head;
         const tail = list.tail;
-        
+
         if (tail) tail.next = head;
         if (head) head.prev = tail;
 
@@ -29,5 +29,3 @@ xdescribe('leetcode 426: description', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

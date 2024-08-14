@@ -8,8 +8,8 @@ describe('leetcode 343: integer break', () => {
             return 2;
         }
 
-        let target = 2; 
-        let currentResult: number = 0;;
+        let target = 2;
+        let currentResult: number = 0;
         const mem = new Map<number, number>();
 
         mem.set(2, 2);
@@ -21,18 +21,17 @@ describe('leetcode 343: integer break', () => {
         }
 
         return currentResult;
-    };
-
+    }
 
     function integerBreakHelper(n: number, mem: Map<number, number>): number {
         if (mem.has(n)) {
             return mem.get(n) || 1;
         }
 
-        let target = 2; 
+        let target = 2;
         let currentResult = 0;
         while (target <= Math.floor(n / 2)) {
-            currentResult = Math.max(target * integerBreakHelper(n - target, mem), currentResult)
+            currentResult = Math.max(target * integerBreakHelper(n - target, mem), currentResult);
             target++;
         }
 
@@ -45,4 +44,3 @@ describe('leetcode 343: integer break', () => {
         expect(integerBreak(10)).toEqual(36);
     });
 });
-

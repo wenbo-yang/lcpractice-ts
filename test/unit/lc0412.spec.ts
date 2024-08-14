@@ -5,22 +5,19 @@ xdescribe('leetcode 412: fizzbuzz', () => {
         for (let i = 0; i < n; i++) {
             const number = i + 1;
 
-            if (number % 5 === 0 && number % 3 ===0) {
+            if (number % 5 === 0 && number % 3 === 0) {
                 result.push('FizzBuzz');
-            }
-            else if (number % 5 === 0) {
+            } else if (number % 5 === 0) {
                 result.push('Buzz');
-            }
-            else if (number % 3 === 0) {
+            } else if (number % 3 === 0) {
                 result.push('Fizz');
-            }
-            else {
+            } else {
                 result.push(number.toString());
             }
         }
 
         return result;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

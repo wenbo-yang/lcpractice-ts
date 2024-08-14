@@ -3,13 +3,13 @@ xdescribe('leetcode 290: word pattern', () => {
         const map = new Map<string, number[]>();
 
         for (let i = 0; i < pattern.length; i++) {
-            const indices = (map.get(pattern[i]) || []);
+            const indices = map.get(pattern[i]) || [];
             indices.push(i);
-            map.set(pattern[i],  indices);
+            map.set(pattern[i], indices);
         }
         const sArray = s.split(' ');
         for (let offset = 0; offset < sArray.length; offset++) {
-            for(const entry of map.entries()) {
+            for (const entry of map.entries()) {
                 if (!doestEntryMatchPattern(offset, entry, sArray)) {
                     return false;
                 }
@@ -19,7 +19,7 @@ xdescribe('leetcode 290: word pattern', () => {
         }
 
         return true;
-    };
+    }
 
     function doestEntryMatchPattern(offset: number, entry: [string, number[]], sArray: string[]) {
         const word = sArray[offset];
@@ -35,6 +35,3 @@ xdescribe('leetcode 290: word pattern', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

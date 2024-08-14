@@ -8,18 +8,15 @@ xdescribe('leetcode 424: longest repeating character resplacement', () => {
         do {
             addToCharCount(charCount, s, r++);
 
-            if(!isOtherCountGreaterThanK(charCount, k)) {
+            if (!isOtherCountGreaterThanK(charCount, k)) {
                 max = Math.max(r - l, max);
-            }
-            else {
+            } else {
                 l = reduceWindowUntilOtherCountSmallerEqualsToK(charCount, s, l, k);
             }
         } while (r < s.length);
 
-
         return max;
-    };
-
+    }
 
     function addToCharCount(charCount: number[], s: string, index: number) {
         charCount[s[index].charCodeAt(0) - 'A'.charCodeAt(0)]++;
@@ -29,8 +26,8 @@ xdescribe('leetcode 424: longest repeating character resplacement', () => {
         let max = 0;
         let maxIndex = 0;
 
-        for(let i = 0; i < charCount.length; i++) {
-            if ( charCount[i] > max) {
+        for (let i = 0; i < charCount.length; i++) {
+            if (charCount[i] > max) {
                 maxIndex = i;
                 max = charCount[i];
             }
@@ -38,29 +35,19 @@ xdescribe('leetcode 424: longest repeating character resplacement', () => {
 
         let otherCount = 0;
         for (let i = 0; i < charCount.length; i++) {
-            otherCount += ((i === maxIndex) ? 0 : charCount[i]);
+            otherCount += i === maxIndex ? 0 : charCount[i];
         }
 
         return otherCount > k;
     }
 
-
     function reduceWindowUntilOtherCountSmallerEqualsToK(charCount: number[], s: string, l: number, k: number): number {
-        while(isOtherCountGreaterThanK(charCount, k)) {
+        while (isOtherCountGreaterThanK(charCount, k)) {
             charCount[s[l++].charCodeAt(0) - 'A'.charCodeAt(0)]--;
         }
 
         return l;
     }
 
-    
-
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-
-
-

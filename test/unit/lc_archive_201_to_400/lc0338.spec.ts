@@ -13,7 +13,7 @@ xdescribe('leetcode 338: description', () => {
         }
 
         return result;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

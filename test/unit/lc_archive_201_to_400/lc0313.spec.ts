@@ -1,12 +1,12 @@
-import { MinHeap } from "../commonLibs";
+import { MinHeap } from '../commonLibs';
 
 xdescribe('leetcode 313: super ugly number', () => {
     // try heap
     // max queue and min queue
 
     function nthSuperUglyNumber(n: number, primes: number[]): number {
-        primes.sort((a,b) => a - b);
-        
+        primes.sort((a, b) => a - b);
+
         const uglyNumbers: number[] = [1];
 
         if (n === 1) {
@@ -15,11 +15,11 @@ xdescribe('leetcode 313: super ugly number', () => {
 
         while (uglyNumbers.length < n) {
             const nextUglyNumber = getNext(uglyNumbers, primes);
-            uglyNumbers.push(nextUglyNumber)
+            uglyNumbers.push(nextUglyNumber);
         }
 
         return uglyNumbers[uglyNumbers.length - 1];
-    };
+    }
 
     function getNext(uglyNumbers: number[], primes: number[]) {
         const minHeap = new MinHeap();
@@ -37,11 +37,8 @@ xdescribe('leetcode 313: super ugly number', () => {
     }
 
     function binarySearchForNextGreater(uglyNumbers: number[], target: number, arg2: number, length: number): number {
-        throw new Error("Function not implemented.");
-    }    
+        throw new Error('Function not implemented.');
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

@@ -5,8 +5,7 @@ xdescribe('leetcode 411: description', () => {
         const length = word.length;
         for (let i = 0; i < length; i++) {
             let cur = num & 1;
-            if (cur == 1)
-                consecutiveCount++;
+            if (cur == 1) consecutiveCount++;
             else {
                 if (consecutiveCount > 0) {
                     sb.push(consecutiveCount.toString());
@@ -16,8 +15,7 @@ xdescribe('leetcode 411: description', () => {
             }
             num >>= 1;
         }
-        if (consecutiveCount > 0)
-            sb.push(consecutiveCount.toString());
+        if (consecutiveCount > 0) sb.push(consecutiveCount.toString());
         return sb.toString();
     }
 
@@ -28,13 +26,12 @@ xdescribe('leetcode 411: description', () => {
         let minLength = length;
         for (let i = totalCount; i > 0; i--) {
             const abbr = generateAbbreviation(target, i);
-            if (abbr.length > minLength)
-                continue;
+            if (abbr.length > minLength) continue;
             let flag: boolean = true;
             for (const word of dictionary) {
                 if (word.length == length) {
                     let abbr2 = generateAbbreviation(word, i);
-                    if (abbr2 === (abbr)) {
+                    if (abbr2 === abbr) {
                         flag = false;
                         break;
                     }

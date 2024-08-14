@@ -7,13 +7,12 @@ xdescribe('leetcode 414: Third Maximum Number', () => {
             }
 
             if (array.length > 3) {
-                
                 array.pop();
             }
         }
 
-        return array.sort((a,b) => b - a)[0];
-    };
+        return array.sort((a, b) => b - a)[0];
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

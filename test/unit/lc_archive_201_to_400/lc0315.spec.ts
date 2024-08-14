@@ -5,7 +5,7 @@ xdescribe('leetcode 315: count number of number after self', () => {
         public count: number;
         public leftCount: number;
         public left: BSTNode | null;
-        public right: BSTNode | null;    
+        public right: BSTNode | null;
 
         constructor(val: number) {
             this.val = val;
@@ -13,12 +13,12 @@ xdescribe('leetcode 315: count number of number after self', () => {
             this.leftCount = 0;
             this.left = null;
             this.right = null;
-        } 
-        
-        public lessOrEqual() { 
-            return this.count + this.leftCount; 
         }
-    };
+
+        public lessOrEqual() {
+            return this.count + this.leftCount;
+        }
+    }
 
     function countSmaller(nums: number[]): number[] {
         if (nums.length === 0) {
@@ -39,16 +39,14 @@ xdescribe('leetcode 315: count number of number after self', () => {
         if (root.val == val) {
             ++root.count;
             return root.leftCount;
-        } 
-        else if (val > root.val) {
+        } else if (val > root.val) {
             root.leftCount++;
             if (!root.left) {
-                root.left = new BSTNode(val);            
+                root.left = new BSTNode(val);
                 return 0;
-            } 
+            }
             return insert(root.left, val);
-        } 
-        else  {
+        } else {
             if (!root.right) {
                 root.right = new BSTNode(val);
                 return root.lessOrEqual();

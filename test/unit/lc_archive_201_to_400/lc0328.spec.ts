@@ -1,16 +1,16 @@
-import {ListNode} from '../commonLibs'
+import { ListNode } from '../commonLibs';
 
 xdescribe('leetcode 328: odd even linked list', () => {
     function oddEvenListSwappingValue(head: ListNode | null): ListNode | null {
         let temp: ListNode | null = head;
-        while(temp && temp.val % 2 === 1) {
+        while (temp && temp.val % 2 === 1) {
             temp = temp.next;
         }
 
         let e: ListNode | null = temp;
         let o: ListNode | null = temp;
 
-        while(o !== null) {
+        while (o !== null) {
             if (o.val % 2 === 1) {
                 if (e) {
                     const temp = e.val;
@@ -32,8 +32,8 @@ xdescribe('leetcode 328: odd even linked list', () => {
     function oddEvenListSwappingNodes(head: ListNode | null): ListNode | null {
         let temp: ListNode | null = head;
         let tempPrev: ListNode | null = null;
-        while(temp && temp.val % 2 === 1) {
-            tempPrev = temp
+        while (temp && temp.val % 2 === 1) {
+            tempPrev = temp;
             temp = temp.next;
         }
 
@@ -42,8 +42,7 @@ xdescribe('leetcode 328: odd even linked list', () => {
         let ePrev: ListNode | null = tempPrev;
         let oPrev: ListNode | null = temp;
 
-
-        while(o !== null) {
+        while (o !== null) {
             if (o.val % 2 === 1) {
                 if (e) {
                     if (oPrev) {
@@ -57,7 +56,7 @@ xdescribe('leetcode 328: odd even linked list', () => {
                     o.next = e;
                 }
             }
-            o = temp
+            o = temp;
         }
 
         return head;
@@ -73,11 +72,10 @@ xdescribe('leetcode 328: odd even linked list', () => {
                 oPrev.next = o.next;
             }
 
-            o.next = e
+            o.next = e;
         }
     }
 
-    
     // function oddEvenList(head: ListNode | null): ListNode | null {
     //     // 1 2 3 4 5
     //     // o e l
@@ -96,7 +94,7 @@ xdescribe('leetcode 328: odd even linked list', () => {
     //             oLast = oLast.next;
     //         }
 
-    //         e = oLast.next 
+    //         e = oLast.next
     //     }
     //     else {
     //         e = head
@@ -116,13 +114,9 @@ xdescribe('leetcode 328: odd even linked list', () => {
     //     if (oLast === null) {
     //        // head is even
     //        // swap head with next
-    //        temp = head, 
+    //        temp = head,
     //     }
     // }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-

@@ -7,9 +7,9 @@ xdescribe('leetcode 327: count of range sum', () => {
         }
 
         return NaN;
-    };
+    }
 
-    function mergeAnlyse(sum: number[], lower: number, upper: number, l: number, r: number) {   
+    function mergeAnlyse(sum: number[], lower: number, upper: number, l: number, r: number) {
         return;
     }
 

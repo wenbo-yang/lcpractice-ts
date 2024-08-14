@@ -2,7 +2,7 @@ xdescribe('leetcode 294: flip game', () => {
     class Solution {
         private n: number = 0;
         private memo = new Map<number, boolean>();
-    
+
         public canWin(currentState: string): boolean {
             let mask: number = 0;
             this.n = currentState.length;
@@ -13,7 +13,7 @@ xdescribe('leetcode 294: flip game', () => {
             }
             return this.dfs(mask);
         }
-    
+
         private dfs(mask: number): boolean {
             if (this.memo.has(mask)) {
                 return this.memo.get(mask) || false;
@@ -32,7 +32,7 @@ xdescribe('leetcode 294: flip game', () => {
             return false;
         }
     }
-    
+
     function func(): void {
         throw new Error('not implemented');
     }

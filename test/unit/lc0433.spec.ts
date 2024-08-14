@@ -1,11 +1,11 @@
 xdescribe('leetcode 433: minimum generic mutation', () => {
     function minMutation(startGene: string, endGene: string, bank: string[]): number {
-        const selectedIndices = new Set<number>()
+        const selectedIndices = new Set<number>();
 
         const result = minMutationHelper(startGene, endGene, bank, selectedIndices);
 
         return result;
-    };
+    }
 
     function minMutationHelper(startGene: string, endGene: string, bank: string[], selectedIndices: Set<number>) {
         if (startGene === endGene) {
@@ -24,11 +24,11 @@ xdescribe('leetcode 433: minimum generic mutation', () => {
 
         return min;
     }
-    
+
     function diffCount(geneA: string, geneB: string): number {
         let count = 0;
         for (let i = 0; i < geneA.length; i++) {
-            count += geneA[i] === geneB[i] ? 0 : 1; 
+            count += geneA[i] === geneB[i] ? 0 : 1;
         }
 
         return count;
@@ -36,4 +36,3 @@ xdescribe('leetcode 433: minimum generic mutation', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

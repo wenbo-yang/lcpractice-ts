@@ -1,22 +1,20 @@
 xdescribe('leetcode 406: reconstruct queue', () => {
     function reconstructQueue(people: number[][]): number[][] {
-        const compare = function (a: number[], b: number[]){
+        const compare = function (a: number[], b: number[]) {
             if (a[1] > b[1]) {
                 return 1;
-            }
-            else if (a[1] < b[1]) {
+            } else if (a[1] < b[1]) {
                 return -1;
             }
 
             if (a[0] > b[0]) {
-                return 1
-            }
-            else if (a[0] < b[0]) {
-                return -1
+                return 1;
+            } else if (a[0] < b[0]) {
+                return -1;
             }
 
             return 0;
-        }
+        };
 
         people.sort(compare);
 
@@ -30,11 +28,10 @@ xdescribe('leetcode 406: reconstruct queue', () => {
             index++;
         }
 
-        console.log(people)
+        console.log(people);
 
         return people;
-    };
-
+    }
 
     function isAtValidPosition(people: number[][], index: number): number {
         let numberOfGreaterOrEqual = people[index][1];
@@ -42,7 +39,7 @@ xdescribe('leetcode 406: reconstruct queue', () => {
         if (numberOfGreaterOrEqual === 0) {
             return 0;
         }
-        
+
         let count = 0;
 
         for (let i = 0; i < index; i++) {
@@ -54,9 +51,7 @@ xdescribe('leetcode 406: reconstruct queue', () => {
         return count;
     }
 
-
     function placeAtValidPosition(people: number[][], index: number, greaterOrEqualsCount: number): number {
-        
         let placeAt = 0;
         for (let i = index - 1; i >= 0; i--) {
             if (people[i][0] >= people[index][0]) {
@@ -69,7 +64,7 @@ xdescribe('leetcode 406: reconstruct queue', () => {
             }
         }
 
-        shiftRight(people, placeAt, index, Array.from(people[index]))
+        shiftRight(people, placeAt, index, Array.from(people[index]));
 
         return placeAt;
     }
@@ -85,15 +80,23 @@ xdescribe('leetcode 406: reconstruct queue', () => {
     }
 
     it('test case 1 Input: people, output queue ', async () => {
-        const people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]];
-        const output = [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]];
+        const people = [
+            [7, 0],
+            [4, 4],
+            [7, 1],
+            [5, 0],
+            [6, 1],
+            [5, 2],
+        ];
+        const output = [
+            [5, 0],
+            [7, 0],
+            [5, 2],
+            [6, 1],
+            [4, 4],
+            [7, 1],
+        ];
 
         expect(reconstructQueue(people)).toEqual(output);
     }, 1000);
 });
-
-
-
-
-
-

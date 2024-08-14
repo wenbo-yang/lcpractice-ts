@@ -1,4 +1,4 @@
-import { BinaryTree, TreeNode } from "../commonLibs";
+import { BinaryTree, TreeNode } from '../commonLibs';
 xdescribe('leetcode 337: description', () => {
     function rob(root: TreeNode | null): number {
         if (!root) {
@@ -22,10 +22,8 @@ xdescribe('leetcode 337: description', () => {
     }
 
     it('test case 1 Input: [3,2,3,null,3,null,1], output 7', () => {
-        const root = new BinaryTree([3,2,3,null,3,null,1]).root;
+        const root = new BinaryTree([3, 2, 3, null, 3, null, 1]).root;
 
         expect(rob(root)).toEqual(7);
     });
 });
-
-

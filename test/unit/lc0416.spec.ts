@@ -1,6 +1,6 @@
 xdescribe('leetcode 416: partition equal subset sum', () => {
     function canPartition(nums: number[]): boolean {
-        const totalSum = nums.reduce((a,b) => a+b);
+        const totalSum = nums.reduce((a, b) => a + b);
 
         if (totalSum % 2 !== 0) {
             return false;
@@ -22,7 +22,7 @@ xdescribe('leetcode 416: partition equal subset sum', () => {
         }
 
         return false;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

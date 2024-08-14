@@ -1,12 +1,11 @@
-import {MaxHeap, MinHeap} from '../commonLibs'
+import { MaxHeap, MinHeap } from '../commonLibs';
 xdescribe('leetcode 295: running median', () => {
     class MedianFinder {
         private maxHeap = new MaxHeap<number>();
         private minHeap = new MinHeap<number>();
 
-        constructor() {
-        }
-    
+        constructor() {}
+
         addNum(num: number): void {
             // first of all its all empty
             if (this.minHeap.length === 0 && this.maxHeap.length === 0) {
@@ -16,8 +15,7 @@ xdescribe('leetcode 295: running median', () => {
 
             if (num > (this.minHeap.peek() || Number.MIN_SAFE_INTEGER)) {
                 this.minHeap.push(num);
-            }
-            else {
+            } else {
                 this.maxHeap.push(num);
             }
 
@@ -29,7 +27,7 @@ xdescribe('leetcode 295: running median', () => {
                 smaller.push(adjustment);
             }
         }
-    
+
         findMedian(): number {
             const bigger = this.maxHeap.length > this.minHeap.length ? this.maxHeap : this.minHeap;
             const smaller = bigger === this.maxHeap ? this.minHeap : this.maxHeap;
@@ -38,7 +36,7 @@ xdescribe('leetcode 295: running median', () => {
                 return bigger.peek();
             }
 
-            return (bigger.peek() + smaller.peek()) / 2
+            return (bigger.peek() + smaller.peek()) / 2;
         }
     }
 

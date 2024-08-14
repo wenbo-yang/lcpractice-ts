@@ -12,6 +12,6 @@ xdescribe('leetcode 392: is subsequence', () => {
         }
 
         return sIndex === s.length;
-    };
+    }
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
