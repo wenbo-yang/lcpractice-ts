@@ -50,7 +50,7 @@ export class DoubleLinkedListNode {
 export class DoubleLinkedList {
     public head: DoubleLinkedListNode | null = null;
     public tail: DoubleLinkedListNode | null = null;
-    constructor(nums: number[]) {
+    constructor(nums: number[] = []) {
         if (nums.length === 0) {
             this.head = null;
         } else {
@@ -66,6 +66,71 @@ export class DoubleLinkedList {
 
             this.tail = prev;
         }
+    }
+
+    public addHead(num: number) {
+        if (num === -1) {
+            return;
+        }
+
+        const node = new DoubleLinkedListNode(num);
+        node.next = this.head;
+        node.prev = null;
+        
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+        }
+    }
+
+    public removeTail(): DoubleLinkedListNode | null {
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+
+            return null;
+        }
+
+        if (this.tail) {
+            const val = this.tail.val;
+
+            this.tail = this.tail.prev;
+            if (this.tail) this.tail.next = null;
+
+            return new DoubleLinkedListNode(val);
+        }
+        
+        return null;
+    }
+
+    public remove(node: DoubleLinkedListNode | null): DoubleLinkedListNode | null {
+        if (!node) {
+            return null;
+        }
+        const val = node.val;
+        if (node === this.head && node === this.tail) {
+            this.head = null;
+            this.tail = null;
+        }
+
+        if (node === this.tail) {
+            this.tail = this.tail.prev;
+            if (this.tail) this.tail.next = null;
+        } 
+        else if(node === this.head) {
+            this.head = this.head.next;
+            if(this.head) this.head.prev = null;
+        }
+        else {
+            // remove from middle
+            const prev = node.prev;
+            const next = node.next;
+
+            if (prev) prev.next = next;
+            if (next) next.prev = prev;
+        }
+
+        return new DoubleLinkedListNode(val);
     }
 
     public static convertToArray(head: ListNode | null): number[] {
