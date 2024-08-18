@@ -25,7 +25,7 @@ xdescribe('leetcode 463: description', () => {
         calculatePerimeterBy(validNeighbors.length, perimeterLength);
 
         for (const neighbor of validNeighbors) {
-            mapIsland(grid, neighbor[0], neighbor[1], visited, perimeterLength);
+            mapIsland(grid, neighbor.r, neighbor.c, visited, perimeterLength);
         }
     }
 

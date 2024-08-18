@@ -29,7 +29,7 @@ xdescribe('leetcode 456: 132 pattern', () => {
     };
 
     function lastOf(stack: number[]): number {
-        return stack[length - 1] || Number.MIN_SAFE_INTEGER;
+        return stack[stack.length - 1] || Number.MIN_SAFE_INTEGER;
     }
 
 
