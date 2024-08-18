@@ -70,6 +70,7 @@ xdescribe('leetcode 460: LFU cache', () => {
         
         put(key: number, value: number): void {
             const node = this.keyNodeMap.get(key);
+            /// not finding node insert to count 1 bucket
             if (!node) {
                 if (this.isHeadCount1()) {
                     this.addToHead(key, value);    

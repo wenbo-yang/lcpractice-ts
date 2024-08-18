@@ -1,4 +1,4 @@
-xdescribe('leetcode 453: description', () => {
+xdescribe('leetcode 453: minimum moves to equal array elements', () => {
     function minMoves(nums: number[]): number {
         return nums.reduce((a,b) => a + b) - nums.length * Math.min(...nums);
     };
