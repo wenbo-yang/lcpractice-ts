@@ -19,8 +19,17 @@ xdescribe('leetcode 486: predict winner', () => {
             return mem.get([start, end, myScore, myOpponentsScore, myTurn].join()) || false;
         }
 
-        const result = canWinHelper(nums, start + 1, end, myScore + (myTurn ? nums[start] : 0), myOpponentsScore + (myTurn ? 0 : nums[start]), sum - nums[start], !myTurn, mem) || 
+        let result = false;
+        
+        if (myTurn) {
+            result = canWinHelper(nums, start + 1, end, myScore + (myTurn ? nums[start] : 0), myOpponentsScore + (myTurn ? 0 : nums[start]), sum - nums[start], !myTurn, mem) || 
                canWinHelper(nums, start, end + 1, myScore + (myTurn ? nums[end] : 0) , myOpponentsScore + (myTurn ? 0 : nums[end]), sum - nums[end], !myTurn, mem);
+        }
+        else {
+            result = canWinHelper(nums, start + 1, end, myScore + (myTurn ? nums[start] : 0), myOpponentsScore + (myTurn ? 0 : nums[start]), sum - nums[start], !myTurn, mem) && 
+            canWinHelper(nums, start, end + 1, myScore + (myTurn ? nums[end] : 0) , myOpponentsScore + (myTurn ? 0 : nums[end]), sum - nums[end], !myTurn, mem);
+        }
+        
 
         mem.set([start, end, myScore, myOpponentsScore, myTurn].join(), result);
 
