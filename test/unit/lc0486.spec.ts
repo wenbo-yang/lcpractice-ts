@@ -5,7 +5,7 @@ xdescribe('leetcode 486: predict winner', () => {
         return canWinHelper(nums, 0, nums.length - 1, 0, 0, sum, true, mem)  
     };
 
-    function canWinHelper(nums: number[], start: number, end: number, myScore: number, myOpponentsScore, sum: number, myTurn: boolean, mem: Map<string, boolean>): boolean {
+    function canWinHelper(nums: number[], start: number, end: number, myScore: number, myOpponentsScore: number, sum: number, myTurn: boolean, mem: Map<string, boolean>): boolean {
         if (start >= end) {
             return myScore >= myOpponentsScore;
         }
