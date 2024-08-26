@@ -14,7 +14,7 @@ xdescribe('leetcode 499: maze III', () => {
         const result: string[] = [];
         const current: string[] = [];
         
-        const visited = new Array<Array<{l:boolean, r:boolean, b:boolean, u:boolean}>>(updatedMat.length).fill([]).map(r => new Array<{l:boolean, r:boolean, d:boolean, u:boolean}>(updatedMat[0].length).fill({l:false, r:false, b:false,u:false}));
+        const visited = new Array<Array<{l:boolean, r:boolean, d:boolean, u:boolean}>>(updatedMat.length).fill([]).map(r => new Array<{l:boolean, r:boolean, d:boolean, u:boolean}>(updatedMat[0].length).fill({l:false, r:false, d:false,u:false}));
         const directions =  {
             down: [-1, 0],
             left: [0, -1],
@@ -29,7 +29,7 @@ xdescribe('leetcode 499: maze III', () => {
          ? result.sort((a,b) => a.length - b.length)[0] : '';
     }
 
-    function canSolveMazeHelper(mat: number[][], ball: number[], hole: number[], current: string[], result: string[], direction: number[], directions: { down: number[]; left: number[]; right: number[]; up: number[]; }, visited: { l: boolean; r: boolean; d: boolean; u: boolean; }[][]) {
+    function canSolveMazeHelper(mat: number[][], ball: number[], hole: number[], current: string[], result: string[], direction: number[], directions: { down: number[]; left: number[]; right: number[]; up: number[]; }, visited: { l: boolean; r: boolean; d: boolean; u: boolean; }[][]): boolean {
         if (ball[0] < 0 || ball[0] >= mat.length || ball[1] < 0 || ball[1] >= mat[0].length || mat[ball[0]][ball[1]] === 1 || hasVisited(visited, ball, direction)) {
             return false;
         }
@@ -68,7 +68,7 @@ xdescribe('leetcode 499: maze III', () => {
     }
     
 
-    function rollToEnd(ball: number[], hole, direction: number[], mat: number[][]): boolean {
+    function rollToEnd(ball: number[], hole: number[], direction: number[], mat: number[][]): boolean {
         if (ball[0] === hole[0] && ball[1] === hole[1] ) {
             return false;
         }
@@ -82,7 +82,7 @@ xdescribe('leetcode 499: maze III', () => {
         return false;
     }
 
-    function setVisited(visited: { l: boolean; r: boolean; d: boolean; u: boolean; }[][], ball: number[], direction: number[]): boolean {
+    function setVisited(visited: { l: boolean; r: boolean; d: boolean; u: boolean; }[][], ball: number[], direction: number[]) {
         if (isLeft(direction)) {
             visited[ball[0]][ball[1]].l = true; 
         }

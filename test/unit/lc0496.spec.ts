@@ -12,7 +12,7 @@ xdescribe('leetcode 496: next greater element', () => {
         
         const ans: number[] = [];
         for (const num of nums1) {
-            ans.push(next.has(num) ? next[num] : -1);
+            ans.push(next.get(num) || -1);
         }
 
         return ans;
