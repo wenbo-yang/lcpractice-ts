@@ -1,6 +1,6 @@
 import {TreeNode} from './commonLibs';
 
-xdescribe('leetcode 501: description', () => {
+xdescribe('leetcode 501: traverse tree', () => {
     function findMode(root: TreeNode | null): number[] {
         const array: number[] = [];
         inOrderTraversal(root, array);
@@ -17,14 +17,7 @@ xdescribe('leetcode 501: description', () => {
                 while (stack.length !== 0 && stack[stack.length - 1].count < maxCount) {
                     stack.pop();
                 }
-                xdescribe('leetcode num: description', () => {
-                    function func(): void {
-                        throw new Error('not implemented');
-                    }
-                
-                    it('test case 1 Input:, target = 5, output 2 ', () => {});
-                });
-                
+
                 stack.push({n: array[l], count: maxCount});
             }
         }
