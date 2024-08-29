@@ -6,7 +6,7 @@ xdescribe('leetcode 514: description', () => {
         return findMinStepsHelper(ring, key, 0, 0, mem, memRotations);
     };
 
-    function findMinStepsHelper(ring: string, key: string, index: number, currentSteps, mem: Map<string, number>, memRotations: Map<string, {newRing: string, steps:number}[]>): number {
+    function findMinStepsHelper(ring: string, key: string, index: number, currentSteps: number, mem: Map<string, number>, memRotations: Map<string, {newRing: string, steps:number}[]>): number {
         if (index >= key.length) {
             return currentSteps;
         }

@@ -24,7 +24,7 @@ xdescribe('leetcode 505: description', () => {
             return Number.MAX_SAFE_INTEGER;
         }
 
-        set(direction: number[], value): void {
+        set(direction: number[], value: number): void {
             if (direction[0] === 1) {
                 this.down = value;
             }
