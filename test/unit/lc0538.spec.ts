@@ -6,22 +6,21 @@ xdescribe('leetcode 538: convert bst to greater tree', () => {
             return null;
         }
 
+        const result: number[] = []
         rightOrderTraversal(root, 0)
 
         return root;
     };
 
-    function rightOrderTraversal(root: TreeNode | null, numberSoFar: number): number {
+    function rightOrderTraversal(root: TreeNode | null, result: number[]): void {
         if (!root) {
-            return 0;
+            return;
         }
 
-        let right = rightOrderTraversal(root.right, numberSoFar);
-        root.val += numberSoFar;
-        let left = rightOrderTraversal(root.left, root.val);
-
-        return left;
-
+        rightOrderTraversal(root.right, result);
+        root.val += result[0];
+        result[0] = root.val;
+        rightOrderTraversal(root.left, result);
     };
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
