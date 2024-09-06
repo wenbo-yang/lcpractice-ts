@@ -19,18 +19,18 @@ xdescribe('leetcode 472: concat words', () => {
             for (let i = 1; i < word.length - 1; i++) {
                 const left = word.substring(0, i);
                 const right = word.substring(i + 1);
-                
-                if(dict.has(left) && isWordAConcatWord(right, dict, mem)) {
+
+                if (dict.has(left) && isWordAConcatWord(right, dict, mem)) {
                     mem.add(word);
                     result.push(word);
                 }
             }
         }
 
-        return result
-    };
+        return result;
+    }
 
-    function isWordAConcatWord(subWord : string, dict: Set<string>, mem: Set<string>): boolean {
+    function isWordAConcatWord(subWord: string, dict: Set<string>, mem: Set<string>): boolean {
         if (dict.has(subWord) || mem.has(subWord)) {
             return true;
         }
@@ -38,8 +38,8 @@ xdescribe('leetcode 472: concat words', () => {
         for (let i = 1; i < subWord.length - 1; i++) {
             const left = subWord.substring(0, i);
             const right = subWord.substring(i + 1);
-            
-            if((dict.has(left) || mem.has(left)) && isWordAConcatWord(right, dict, mem)) {
+
+            if ((dict.has(left) || mem.has(left)) && isWordAConcatWord(right, dict, mem)) {
                 mem.add(subWord);
                 return true;
             }
@@ -50,5 +50,3 @@ xdescribe('leetcode 472: concat words', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

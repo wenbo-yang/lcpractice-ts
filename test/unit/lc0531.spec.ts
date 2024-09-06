@@ -5,20 +5,20 @@ xdescribe('leetcode 531: description', () => {
 
         const coor: number[][] = [];
 
-        for(let i = 0; i < board.length; i++) {
+        for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board[0].length; j++) {
                 if (board[i][j] === 'B') {
                     rowCount[i]++;
                     colCount[j]++;
-                    coor.push([i,j]);
+                    coor.push([i, j]);
                 }
             }
         }
 
         let count = 0;
-        
+
         for (const c of coor) {
-            if(rowCount[c[0]] === 1 && colCount[c[1]]) {
+            if (rowCount[c[0]] === 1 && colCount[c[1]]) {
                 count++;
             }
         }

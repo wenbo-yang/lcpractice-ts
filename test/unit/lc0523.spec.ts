@@ -5,7 +5,7 @@ xdescribe('leetcode 523: continuous subarray sum', () => {
         }
 
         const rangeSum = initRangeSum(nums);
-        // [ 6, 7, 8, 13] // 
+        // [ 6, 7, 8, 13] //
 
         const reminderSet = new Set<number>();
 
@@ -13,16 +13,15 @@ xdescribe('leetcode 523: continuous subarray sum', () => {
         reminderSet.add(0);
 
         for (let i = 1; i < rangeSum.length; i++) {
-            if (rangeSum[i] >= k  && reminderSet.has(rangeSum[i] % k)) {
+            if (rangeSum[i] >= k && reminderSet.has(rangeSum[i] % k)) {
                 return true;
-            }
-            else {
-                reminderSet.add(rangeSum[i]%k);
+            } else {
+                reminderSet.add(rangeSum[i] % k);
             }
         }
 
         return false;
-    };
+    }
 
     function initRangeSum(nums: number[]): number[] {
         const rangeSum = Array.from(nums);
@@ -35,5 +34,3 @@ xdescribe('leetcode 523: continuous subarray sum', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

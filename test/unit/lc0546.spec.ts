@@ -5,7 +5,7 @@ xdescribe('leetcode 546: remove boxes', () => {
         const result = countScoresHelper(boxes, 0, mem);
 
         return result;
-    };
+    }
 
     function countScoresHelper(boxes: number[], prevScore: number, mem: Map<string, number>) {
         if (boxes.length === 0) {
@@ -23,7 +23,7 @@ xdescribe('leetcode 546: remove boxes', () => {
             const count = getContinuesRange(boxes, startIndex);
             const currScore = prevScore + count * count;
             const newBoxes = formNewBoxesArray(boxes, startIndex, count);
-            
+
             max = Math.max(max, countScoresHelper(newBoxes, currScore, mem));
 
             startIndex += count;
@@ -36,7 +36,7 @@ xdescribe('leetcode 546: remove boxes', () => {
 
     function getContinuesRange(boxes: number[], startIndex: number) {
         let count = 1;
-        while(boxes[startIndex++] === boxes[startIndex]) {
+        while (boxes[startIndex++] === boxes[startIndex]) {
             count++;
         }
 
@@ -50,17 +50,9 @@ xdescribe('leetcode 546: remove boxes', () => {
         return start.concat(end);
     }
 
-
     function toKey(boxes: number[], prevScore: number): string {
         return boxes.join() + '_' + prevScore;
     }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-
-
-

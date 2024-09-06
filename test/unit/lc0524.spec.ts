@@ -1,19 +1,18 @@
 xdescribe('leetcode 524: longest word through deleting', () => {
     function findLongestWord(s: string, dictionary: string[]): string {
-        dictionary.sort((a,b) => b.length - a.length);
-        const first = dictionary.findIndex(w => s.length >= w.length);
+        dictionary.sort((a, b) => b.length - a.length);
+        const first = dictionary.findIndex((w) => s.length >= w.length);
 
         if (first !== -1) {
-            for(let i = first; i < dictionary.length; i++) {
+            for (let i = first; i < dictionary.length; i++) {
                 if (isSubsequenceOf(s, dictionary[i])) {
-                    return dictionary[i]
+                    return dictionary[i];
                 }
             }
         }
 
-        return "";
-
-    };
+        return '';
+    }
 
     function isSubsequenceOf(s: string, w: string) {
         let iW = 0;
@@ -28,8 +27,6 @@ xdescribe('leetcode 524: longest word through deleting', () => {
 
         return iW === w.length;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

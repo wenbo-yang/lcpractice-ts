@@ -5,7 +5,7 @@ xdescribe('leetcode 465: description', () => {
             g[f] -= x;
             g[t] += x;
         }
-        const nums = g.filter(x => x !== 0);
+        const nums = g.filter((x) => x !== 0);
         const m = nums.length;
         const f: number[] = new Array(1 << m).fill(1 << 29);
         f[0] = 0;
@@ -25,7 +25,7 @@ xdescribe('leetcode 465: description', () => {
         }
         return f[(1 << m) - 1];
     }
-    
+
     function bitCount(i: number): number {
         i = i - ((i >>> 1) & 0x55555555);
         i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);

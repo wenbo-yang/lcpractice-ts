@@ -3,12 +3,12 @@ xdescribe('leetcode 489: ', () => {
         // returns true if next cell is open and robot moves into the cell.
         // returns false if next cell is obstacle and robot stays on the current cell.
         move(): boolean;
-      
+
         // Robot will stay on the same cell after calling turnLeft/turnRight.
         // Each turn will be 90 degrees.
         turnLeft(): void;
         turnRight(): void;
-      
+
         // Clean the current cell.
         clean(): void;
     }
@@ -24,15 +24,14 @@ xdescribe('leetcode 489: ', () => {
         const facing: FACING = FACING.LEFT;
         const toBeCleaned = getToBeCleanedCoordinates(room);
 
-        const visited = new Array<Array<boolean>>(room.length).fill([]).map(r => new Array<boolean>(room[0].length).fill(false));
+        const visited = new Array<Array<boolean>>(room.length).fill([]).map((r) => new Array<boolean>(room[0].length).fill(false));
 
-        const currentVector = {row, col, facing};
-        
+        const currentVector = { row, col, facing };
+
         mapIsland(room, row, col, currentVector, visited, robot);
     }
 
-
-    function mapIsland(room: number[][], row: number, col: number, currentVector: { row: number; col: number; facing: FACING; }, visited: boolean[][], robot: Robot) {
+    function mapIsland(room: number[][], row: number, col: number, currentVector: { row: number; col: number; facing: FACING }, visited: boolean[][], robot: Robot) {
         if (row < 0 || row >= room.length || col < 0 || col >= room[0].length || visited[row][col] || room[row][col] === 0) {
             return;
         }
@@ -70,11 +69,11 @@ xdescribe('leetcode 489: ', () => {
 
     function getToBeCleanedCoordinates(room: number[][]) {
         const set = new Set<string>();
-        
+
         for (let i = 0; i < room.length; i++) {
             for (let j = 0; j < room.length; j++) {
                 if (room[i][j] === 1) {
-                    set.add([i,j].join());
+                    set.add([i, j].join());
                 }
             }
         }
@@ -91,11 +90,9 @@ xdescribe('leetcode 489: ', () => {
         if (isMovingTop(row, targetRow)) {
             if (currentFacing === FACING.LEFT) {
                 robot.turnRight();
-            }
-            else if (currentFacing === FACING.RIGHT){
+            } else if (currentFacing === FACING.RIGHT) {
                 robot.turnLeft();
-            }
-            else if (currentFacing === FACING.BOTTOM) {
+            } else if (currentFacing === FACING.BOTTOM) {
                 robot.turnLeft();
                 robot.turnLeft();
             }
@@ -106,11 +103,9 @@ xdescribe('leetcode 489: ', () => {
         if (isMovingBottom(row, targetRow)) {
             if (currentFacing === FACING.LEFT) {
                 robot.turnLeft();
-            }
-            else if (currentFacing === FACING.RIGHT){
+            } else if (currentFacing === FACING.RIGHT) {
                 robot.turnRight();
-            }
-            else if (currentFacing === FACING.TOP) {
+            } else if (currentFacing === FACING.TOP) {
                 robot.turnRight();
                 robot.turnRight();
             }
@@ -118,15 +113,12 @@ xdescribe('leetcode 489: ', () => {
             updatedFacing = FACING.BOTTOM;
         }
 
-
         if (isMovingLeft(col, targetCol)) {
             if (currentFacing === FACING.TOP) {
                 robot.turnLeft();
-            }
-            else if (currentFacing === FACING.BOTTOM) {
+            } else if (currentFacing === FACING.BOTTOM) {
                 robot.turnRight();
-            }
-            else if (currentFacing === FACING.RIGHT){
+            } else if (currentFacing === FACING.RIGHT) {
                 robot.turnLeft();
                 robot.turnLeft();
             }
@@ -135,13 +127,11 @@ xdescribe('leetcode 489: ', () => {
         }
 
         if (isMovingRight(col, targetCol)) {
-            if (currentFacing === FACING.TOP){
+            if (currentFacing === FACING.TOP) {
                 robot.turnRight();
-            }
-            else if (currentFacing === FACING.BOTTOM) {
+            } else if (currentFacing === FACING.BOTTOM) {
                 robot.turnLeft();
-            }
-            else if (currentFacing === FACING.LEFT) {
+            } else if (currentFacing === FACING.LEFT) {
                 robot.turnRight();
                 robot.turnRight();
             }
@@ -157,7 +147,7 @@ xdescribe('leetcode 489: ', () => {
     function isMovingTop(row: number, targetRow: number): boolean {
         return targetRow < row;
     }
-    
+
     function isMovingBottom(row: number, targetRow: number): boolean {
         return targetRow > row;
     }
@@ -169,14 +159,6 @@ xdescribe('leetcode 489: ', () => {
     function isMovingRight(col: number, targetCol: number): boolean {
         return targetCol > col;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-
-
-

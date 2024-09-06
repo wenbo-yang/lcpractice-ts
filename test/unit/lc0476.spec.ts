@@ -4,25 +4,24 @@ xdescribe('leetcode 476: description', () => {
         let leadingZeroFlag = true;
         let result = 0;
         for (let i = 0; i < 31; i++) {
-            const r = (num << 1 ) && 0xa000;
+            const r = num << 1 && 0xa000;
 
-            if(r === 0 && leadingZeroFlag) {
+            if (r === 0 && leadingZeroFlag) {
                 leadingZero++;
-            }
-            else {
+            } else {
                 leadingZeroFlag = false;
             }
 
             if (!leadingZeroFlag) {
-                result = result << 1
-                result += r === 0 ? 0 : 1
+                result = result << 1;
+                result += r === 0 ? 0 : 1;
             }
 
-            num = num << 1
+            num = num << 1;
         }
 
         return result;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

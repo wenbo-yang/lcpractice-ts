@@ -1,8 +1,8 @@
 xdescribe('leetcode 463: description', () => {
     function islandPerimeter(grid: number[][]): number {
-        const visited = new Array<Array<boolean>>(grid.length).fill([]).map(r => new Array<boolean>(grid[0].length).fill(false));
+        const visited = new Array<Array<boolean>>(grid.length).fill([]).map((r) => new Array<boolean>(grid[0].length).fill(false));
 
-        const perimeterLength: number[] = [0]
+        const perimeterLength: number[] = [0];
         for (let i = 0; i < grid.length; i++) {
             for (let j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] === 1) {
@@ -12,10 +12,10 @@ xdescribe('leetcode 463: description', () => {
         }
 
         return perimeterLength[0];
-    };
+    }
 
     function mapIsland(grid: number[][], r: number, c: number, visited: boolean[][], perimeterLength: number[]) {
-        if (!isInBound(grid, r, c)|| !visited[r][c]) {
+        if (!isInBound(grid, r, c) || !visited[r][c]) {
             return;
         }
 
@@ -29,29 +29,29 @@ xdescribe('leetcode 463: description', () => {
         }
     }
 
-    function getNeighbors(grid: number[][], r: number, c: number): {r: number, c: number}[] {
-        const neighbors: {r: number, c: number}[] = []
+    function getNeighbors(grid: number[][], r: number, c: number): { r: number; c: number }[] {
+        const neighbors: { r: number; c: number }[] = [];
         if (isInBound(grid, r + 1, c)) {
-            neighbors.push({r: r + 1,c: c});
+            neighbors.push({ r: r + 1, c: c });
         }
 
         if (isInBound(grid, r - 1, c)) {
-            neighbors.push({r: r - 1,c: c});
+            neighbors.push({ r: r - 1, c: c });
         }
 
         if (isInBound(grid, r, c + 1)) {
-            neighbors.push({r: r,c: c + 1});
+            neighbors.push({ r: r, c: c + 1 });
         }
 
         if (isInBound(grid, r, c - 1)) {
-            neighbors.push({r: r,c: c - 1});
+            neighbors.push({ r: r, c: c - 1 });
         }
 
         return neighbors;
     }
 
     function isInBound(grid: number[][], r: number, c: number) {
-        return r >=0 && r < grid.length && c >= 0 && c < grid[0].length;
+        return r >= 0 && r < grid.length && c >= 0 && c < grid[0].length;
     }
 
     function calculatePerimeterBy(length: number, perimeterLength: number[]) {
@@ -60,6 +60,3 @@ xdescribe('leetcode 463: description', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

@@ -76,7 +76,7 @@ export class DoubleLinkedList {
         const node = new DoubleLinkedListNode(num);
         node.next = this.head;
         node.prev = null;
-        
+
         if (!this.head) {
             this.head = node;
             this.tail = node;
@@ -99,7 +99,7 @@ export class DoubleLinkedList {
 
             return new DoubleLinkedListNode(val);
         }
-        
+
         return null;
     }
 
@@ -116,12 +116,10 @@ export class DoubleLinkedList {
         if (node === this.tail) {
             this.tail = this.tail.prev;
             if (this.tail) this.tail.next = null;
-        } 
-        else if(node === this.head) {
+        } else if (node === this.head) {
             this.head = this.head.next;
-            if(this.head) this.head.prev = null;
-        }
-        else {
+            if (this.head) this.head.prev = null;
+        } else {
             // remove from middle
             const prev = node.prev;
             const next = node.next;
@@ -162,6 +160,23 @@ export class NTreeNode {
     constructor(val?: number, children?: NTreeNode[]) {
         this.children = children || [];
         this.val = val === undefined ? 0 : val;
+    }
+}
+
+export class QuadTreeNode {
+    val: boolean;
+    isLeaf: boolean;
+    topLeft: QuadTreeNode | null;
+    topRight: QuadTreeNode | null;
+    bottomLeft: QuadTreeNode | null;
+    bottomRight: QuadTreeNode | null;
+    constructor(val?: boolean, isLeaf?: boolean, topLeft?: QuadTreeNode, topRight?: QuadTreeNode, bottomLeft?: QuadTreeNode, bottomRight?: QuadTreeNode) {
+        this.val = val === undefined ? false : val;
+        this.isLeaf = isLeaf === undefined ? false : isLeaf;
+        this.topLeft = topLeft === undefined ? null : topLeft;
+        this.topRight = topRight === undefined ? null : topRight;
+        this.bottomLeft = bottomLeft === undefined ? null : bottomLeft;
+        this.bottomRight = bottomRight === undefined ? null : bottomRight;
     }
 }
 

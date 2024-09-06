@@ -1,6 +1,6 @@
 xdescribe('leetcode 517: super washing machines', () => {
     function findMinMoves(machines: number[]): number {
-        const sum = machines.reduce((a,b) => a + b);
+        const sum = machines.reduce((a, b) => a + b);
         if (sum % machines.length !== 0) {
             return -1;
         }
@@ -14,7 +14,7 @@ xdescribe('leetcode 517: super washing machines', () => {
         }
 
         return steps;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

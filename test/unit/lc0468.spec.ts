@@ -9,7 +9,7 @@ xdescribe('leetcode 468: valid ip address', () => {
         }
 
         return 'Neither';
-    };
+    }
 
     function isValidIPv4(segs: string[]): boolean {
         if (segs.length !== 4) {
@@ -30,7 +30,7 @@ xdescribe('leetcode 468: valid ip address', () => {
     }
 
     function isValidIPv6(segs: string[]): boolean {
-        if (segs.length !== 8 ) {
+        if (segs.length !== 8) {
             return false;
         }
 
@@ -46,10 +46,6 @@ xdescribe('leetcode 468: valid ip address', () => {
 
         return true;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-

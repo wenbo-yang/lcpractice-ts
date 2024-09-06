@@ -1,4 +1,4 @@
-import {MaxHeap, MinHeap} from './commonLibs';
+import { MaxHeap, MinHeap } from './commonLibs';
 
 xdescribe('leetcode 480: description', () => {
     function medianSlidingWindow(nums: number[], k: number): number[] {
@@ -15,16 +15,15 @@ xdescribe('leetcode 480: description', () => {
         while (r < nums.length) {
             if (r - l < k) {
                 addToMaxMinHeap(maxHeap, minHeap, nums[r++]);
-            }
-            else {
+            } else {
                 removeFromMaxMinHeap(maxHeap, minHeap, nums[l++]);
             }
 
-            getMedian(medians, maxHeap, minHeap, k)
+            getMedian(medians, maxHeap, minHeap, k);
         }
 
         return medians;
-    };
+    }
 
     function getMedian(medians: number[], maxHeap: MaxHeap<number>, minHeap: MinHeap<number>, k: number) {
         if (maxHeap.length + minHeap.length === k) {
@@ -33,15 +32,14 @@ xdescribe('leetcode 480: description', () => {
     }
 
     function addToMaxMinHeap(maxHeap: MaxHeap<number>, minHeap: MinHeap<number>, num: number) {
-        if (maxHeap.length === 0 && minHeap.length ===0) {
+        if (maxHeap.length === 0 && minHeap.length === 0) {
             maxHeap.push(num);
             return;
         }
 
         if (num <= maxHeap.peek()) {
             maxHeap.push(num);
-        }
-        else {
+        } else {
             minHeap.push(num);
         }
 
@@ -51,31 +49,22 @@ xdescribe('leetcode 480: description', () => {
     function removeFromMaxMinHeap(maxHeap: MaxHeap<number>, minHeap: MinHeap<number>, num: number) {
         if (num <= maxHeap.peek()) {
             maxHeap.remove(num);
-        }
-        else {
+        } else {
             minHeap.remove(num);
         }
 
         adjustMaxMinHeap(maxHeap, minHeap);
     }
-    
+
     function adjustMaxMinHeap(maxHeap: MaxHeap<number>, minHeap: MinHeap<number>) {
-        while(maxHeap.length - minHeap.length >= 2) {
+        while (maxHeap.length - minHeap.length >= 2) {
             minHeap.push(maxHeap.pop());
         }
 
-        while(minHeap.length - maxHeap.length >= 2) {
+        while (minHeap.length - maxHeap.length >= 2) {
             maxHeap.push(minHeap.pop());
         }
     }
-    
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-
-

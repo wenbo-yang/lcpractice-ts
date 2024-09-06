@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 538: convert bst to greater tree', () => {
     function convertBST(root: TreeNode | null): TreeNode | null {
@@ -6,11 +6,11 @@ xdescribe('leetcode 538: convert bst to greater tree', () => {
             return null;
         }
 
-        const result: number[] = []
-        rightOrderTraversal(root, 0)
+        const result: number[] = [0];
+        rightOrderTraversal(root, result);
 
         return root;
-    };
+    }
 
     function rightOrderTraversal(root: TreeNode | null, result: number[]): void {
         if (!root) {
@@ -21,9 +21,7 @@ xdescribe('leetcode 538: convert bst to greater tree', () => {
         root.val += result[0];
         result[0] = root.val;
         rightOrderTraversal(root.left, result);
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

@@ -15,7 +15,6 @@ xdescribe('leetcode 467: uniq subscripts in wrap around string', () => {
         }
         return dp.reduce((a, b) => a + b);
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

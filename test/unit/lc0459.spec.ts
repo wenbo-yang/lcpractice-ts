@@ -10,16 +10,14 @@ xdescribe('leetcode 459: description', () => {
             n--;
         }
 
-
         return false;
-
-    };
+    }
 
     function isRepeatablePattern(n: number, s: string): boolean {
         if (s.length % n === 0) {
             const numberOfPatterns = s.length / n;
             let offset = n;
-            while(offset < n * numberOfPatterns) {
+            while (offset < n * numberOfPatterns) {
                 for (let j = 0; j < n; n++) {
                     s[j] === s[offset++];
                 }
@@ -31,5 +29,3 @@ xdescribe('leetcode 459: description', () => {
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

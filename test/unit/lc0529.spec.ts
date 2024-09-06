@@ -2,19 +2,18 @@ xdescribe('leetcode 529: mine sweeper', () => {
     function updateBoard(board: string[][], click: number[]): string[][] {
         if (board[click[0]][click[1]] === 'M') {
             board[click[0]][click[1]] = 'X';
-        }
-        else if (board[click[0]][click[1]] === 'E') {
+        } else if (board[click[0]][click[1]] === 'E') {
             mapIsland(board, click[0], click[1]);
         }
-        
+
         return board;
-    };
+    }
 
     function mapIsland(board: string[][], r: number, c: number) {
         if (r < 0 || r >= board.length || c < 0 || c >= board.length || board[r][c] !== 'E') {
             return;
         }
-        
+
         let neighborMines = getNeighboringMines(board, r, c);
 
         if (neighborMines) {
@@ -29,7 +28,7 @@ xdescribe('leetcode 529: mine sweeper', () => {
         mapIsland(board, r, c + 1);
         mapIsland(board, r, c - 1);
     }
-    
+
     function getNeighboringMines(board: string[][], i: number, j: number): number {
         let count = 0;
 
@@ -62,12 +61,6 @@ xdescribe('leetcode 529: mine sweeper', () => {
 
         return count;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-

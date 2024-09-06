@@ -4,7 +4,7 @@ xdescribe('leetcode 519: random flip', () => {
         private n: number = 0;
         private zeroArray: number[][] = [];
         private oneArray: number[][] = [];
-        
+
         constructor(m: number, n: number) {
             this.m = m;
             this.n = n;
@@ -13,7 +13,6 @@ xdescribe('leetcode 519: random flip', () => {
         }
 
         private initializeZeroArray() {
-            
             let index = 0;
             for (let i = 0; i < this.m; i++) {
                 for (let j = 0; j < this.n; j++) {
@@ -21,7 +20,7 @@ xdescribe('leetcode 519: random flip', () => {
                 }
             }
         }
-    
+
         flip(): number[] {
             const index = Math.floor(Math.random() * this.zeroArray.length - 1);
             this.swap(index);
@@ -34,12 +33,12 @@ xdescribe('leetcode 519: random flip', () => {
             this.zeroArray[index] = Array.from(this.zeroArray[this.zeroArray.length - 1]);
             this.oneArray.push(temp);
         }
-    
+
         reset(): void {
             this.zeroArray.concat(this.oneArray);
         }
     }
-    
+
     function func(): void {
         throw new Error('not implemented');
     }

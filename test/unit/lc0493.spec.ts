@@ -16,7 +16,7 @@ xdescribe('leetcode 493: reverse pairs', () => {
     //             return res;
     //         }
     //     };
-    
+
     function reversePairs(nums: number[]): number {
         let index = 0;
         const numIndicesMap = new Map<number, number[]>();
@@ -31,27 +31,20 @@ xdescribe('leetcode 493: reverse pairs', () => {
 
         let count = 0;
         for (let i = 0; i < nums.length; i++) {
-            const index = binarySearchFor(Math.floor(nums[i]/2) - 1, numIndicesArray)
+            const index = binarySearchFor(Math.floor(nums[i] / 2) - 1, numIndicesArray);
             count += countIndicesGreaterThan(numIndicesArray, index, i);
         }
 
         return count;
-    };
-
+    }
 
     function binarySearchFor(target: number, numIndicesArray: [number, number[]][]) {
         throw new Error();
     }
 
     function countIndicesGreaterThan(numIndicesArray: [number, number[]][], index: void, i: number): number {
-        throw new Error("Function not implemented.");
+        throw new Error('Function not implemented.');
     }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-
-
-
-
-

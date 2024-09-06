@@ -1,10 +1,9 @@
 xdescribe('leetcode 494: number of ways to target sum', () => {
     function findTargetSumWays(nums: number[], target: number): number {
-        
         const mem = new Map<string, number>();
 
         return findWaysHelper(nums, target, mem);
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
@@ -18,7 +17,7 @@ function findWaysHelper(nums: number[], target: number, mem: Map<string, number>
         return nums[0] === target ? 1 : 0;
     }
 
-    if (mem.has(toKey(nums,target))) {
+    if (mem.has(toKey(nums, target))) {
         return mem.get(toKey(nums, target)) || 0;
     }
 
@@ -33,6 +32,5 @@ function findWaysHelper(nums: number[], target: number, mem: Map<string, number>
 }
 
 function toKey(nums: number[], target: number): string {
-    return nums.toString() + "_" + target.toString();
+    return nums.toString() + '_' + target.toString();
 }
-

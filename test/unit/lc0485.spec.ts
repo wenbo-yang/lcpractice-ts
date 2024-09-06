@@ -3,7 +3,7 @@ xdescribe('leetcode 485: consecutive 1', () => {
         let l = 0;
         let r = 1;
         let max = 0;
-        while(r < nums.length) {
+        while (r < nums.length) {
             if (nums[r] === 1 && nums[l] === 0) {
                 l = r;
             }
@@ -17,7 +17,7 @@ xdescribe('leetcode 485: consecutive 1', () => {
         }
 
         return Math.max(max, nums[l] === 1 ? r - l : 0);
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

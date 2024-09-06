@@ -10,7 +10,7 @@ xdescribe('leetcode 541: description', () => {
         }
 
         return array.join('');
-    };
+    }
 
     function reverseHelper(array: string[], startIndex: number, k: number) {
         let l = startIndex;
@@ -21,8 +21,6 @@ xdescribe('leetcode 541: description', () => {
             array[r] = t;
         }
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

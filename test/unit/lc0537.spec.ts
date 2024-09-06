@@ -15,26 +15,24 @@ xdescribe('leetcode 537: description', () => {
         }
 
         return real.toString() + (complex > 0 ? '+' : '') + complex.toString() + 'i';
-    };
+    }
 
-    function parseComplexNum(num1: string): {real: number, complex: number} {
+    function parseComplexNum(num1: string): { real: number; complex: number } {
         if (num1.includes('+')) {
             const number = num1.split('+');
-            return {real: Number(number[0]), complex: Number(number[1].replace('i', ''))}
+            return { real: Number(number[0]), complex: Number(number[1].replace('i', '')) };
         }
 
         if (num1.includes('i')) {
-            return {real: 0, complex: Number(num1.replace('i', ''))}
+            return { real: 0, complex: Number(num1.replace('i', '')) };
         }
 
         if (!num1.includes('i')) {
-            return {real: Number(num1), complex: 0};
+            return { real: Number(num1), complex: 0 };
         }
 
-        return {real: 0, complex: 0};
+        return { real: 0, complex: 0 };
     }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

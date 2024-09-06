@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 536: description', () => {
     function constructBinaryTreeFromString(input: string): TreeNode | null {
@@ -10,23 +10,22 @@ xdescribe('leetcode 536: description', () => {
     }
 
     function constructBinaryTreeHelper(input: string): TreeNode | null {
-
         let number = '';
         let root: TreeNode | null = null;
         let index = 0;
 
-        while(isANumber(input[index])) {
-            number+= input[index++];
+        while (isANumber(input[index])) {
+            number += input[index++];
         }
 
         root = new TreeNode(Number(number));
 
-        let leftString = ''
+        let leftString = '';
         const stack: string[] = [];
         let startingIndex = index;
         if (index < input.length) {
             stack.push(input[index]);
-            while(stack.length !== 0) {
+            while (stack.length !== 0) {
                 if (input[index] === '(') {
                     stack.push('(');
                 }
@@ -43,7 +42,7 @@ xdescribe('leetcode 536: description', () => {
         startingIndex = index;
         if (index < input.length) {
             stack.push(input[index]);
-            while(stack.length !== 0) {
+            while (stack.length !== 0) {
                 if (input[index] === '(') {
                     stack.push('(');
                 }
@@ -63,10 +62,6 @@ xdescribe('leetcode 536: description', () => {
     function isANumber(s: string): boolean {
         return !Number.isNaN(Number(s));
     }
-    
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-
-

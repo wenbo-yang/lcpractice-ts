@@ -1,7 +1,8 @@
 xdescribe('leetcode 469: description', () => {
     function isConvex(points: number[][]): boolean {
-        const n = points.length
-        let pre = 0, cur = 0;
+        const n = points.length;
+        let pre = 0,
+            cur = 0;
         for (let i = 0; i < n; i++) {
             const p1 = points[i];
             const p2 = points[(i + 1) % n];

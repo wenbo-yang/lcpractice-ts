@@ -1,4 +1,4 @@
-import { TreeNode } from "./commonLibs";
+import { TreeNode } from './commonLibs';
 
 xdescribe('leetcode 508: most frequent substree sum', () => {
     function findFrequentTreeSum(root: TreeNode | null): number[] {
@@ -6,7 +6,7 @@ xdescribe('leetcode 508: most frequent substree sum', () => {
 
         findSumHelper(root, sumFrequencyMap);
 
-        const array = Array.from(sumFrequencyMap).sort((a,b) => b[1] - a[1]);
+        const array = Array.from(sumFrequencyMap).sort((a, b) => b[1] - a[1]);
 
         if (array.length === 0) {
             return [];
@@ -20,7 +20,7 @@ xdescribe('leetcode 508: most frequent substree sum', () => {
         }
 
         return result;
-    };
+    }
 
     function findSumHelper(root: TreeNode | null, sumFrequencyMap: Map<number, number>): number {
         if (!root) {
@@ -35,8 +35,6 @@ xdescribe('leetcode 508: most frequent substree sum', () => {
 
         return sum;
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
-

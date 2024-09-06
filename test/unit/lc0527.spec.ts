@@ -2,7 +2,7 @@ xdescribe('leetcode 527: word abbreviations', () => {
     class Trie {
         private children: Trie[] = Array(26);
         private cnt: number = 0;
-    
+
         insert(w: string): void {
             let node: Trie = this;
             for (const c of w) {
@@ -14,7 +14,7 @@ xdescribe('leetcode 527: word abbreviations', () => {
                 node.cnt++;
             }
         }
-    
+
         search(w: string): number {
             let node: Trie = this;
             let ans: number = 0;
@@ -29,7 +29,7 @@ xdescribe('leetcode 527: word abbreviations', () => {
             return w.length;
         }
     }
-    
+
     function wordsAbbreviation(words: string[]): string[] {
         const tries: Map<string, Trie> = new Map();
         for (const w of words) {
@@ -39,7 +39,7 @@ xdescribe('leetcode 527: word abbreviations', () => {
             }
             tries.get(key)!.insert(w);
         }
-    
+
         const ans: string[] = [];
         for (const w of words) {
             const m: number = w.length;
@@ -47,11 +47,11 @@ xdescribe('leetcode 527: word abbreviations', () => {
             const cnt: number = tries.get(key)!.search(w);
             ans.push(cnt + 2 >= m ? w : w.substring(0, cnt) + (m - cnt - 1) + w.substring(m - 1));
         }
-    
+
         return ans;
     }
 
-    // abc abcc abd 
+    // abc abcc abd
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

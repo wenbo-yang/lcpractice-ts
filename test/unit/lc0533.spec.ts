@@ -19,14 +19,14 @@ xdescribe('leetcode 533: lonely pixels', () => {
         let result = 0;
         for (const c of coord) {
             if (blackListedRow.has(c[0]) || blackListedCol.has(c[1])) {
-                continue;    
+                continue;
             }
 
             if (rowCount[c[0]] === n && colCount[c[1]] === n) {
                 result += n;
                 blackListedRow.add(c[0]);
                 blackListedCol.add(c[1]);
-            }            
+            }
         }
 
         return result;

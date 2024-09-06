@@ -22,7 +22,6 @@ xdescribe('leetcode 466: count the repetitions', () => {
         }
         return Math.floor(ans / n2);
     }
-    
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });

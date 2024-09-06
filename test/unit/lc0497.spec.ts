@@ -3,9 +3,9 @@ xdescribe('leetcode 497: description', () => {
         rects: number[][];
 
         constructor(rects: number[][]) {
-            this.rects = rects;    
+            this.rects = rects;
         }
-    
+
         pick(): number[] {
             let sumArea = 0;
             let selected: number[] = [];

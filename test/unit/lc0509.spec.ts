@@ -1,7 +1,7 @@
 xdescribe('leetcode 509: fib', () => {
     function fib(n: number): number {
-        // formular 
-        // golden ratio 
+        // formular
+        // golden ratio
         // (1 + sqrt(5)) / 2 power of n
         if (n === 1) {
             return 1;
@@ -20,7 +20,7 @@ xdescribe('leetcode 509: fib', () => {
         }
 
         return curr;
-    };
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
