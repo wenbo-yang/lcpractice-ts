@@ -20,49 +20,83 @@ xdescribe('leetcode 587: erect tree fence', () => {
         }
         
         const left = (treeColumnMap.get(keys[0]) || []);
-        const right = (treeColumnMap.get(keys[keys.length - 1]) || []);
-
+        
         const currentTopLeft = [keys[0], left[left.length - 1]];
-        const currentTopRight = [keys[keys.length - 1], right[right.length - 1]];
-        const currentBottomRight = [keys[keys.length - 1], right[0]];
         const currentBottomLeft = [keys[0], left[0]];
 
-        const currentTopRope = [currentTopLeft, currentTopRight];    
-        const currentBottomRope = [currentBottomLeft, currentBottomRight];    
+        const currentTopRope = [currentTopLeft];    
+        const currentBottomRope = [currentBottomLeft];    
 
-        while(areThereTreesOutsideTop(currentTopRope, treeColumnMap, keys)) {
-            addMaxToCurrentTopRope(currentTopRope, treeColumnMap, keys);
+        for (let i = 1; i < keys.length; i++) {
+            const bottom = (treeColumnMap.get(keys[i]) || [0])[0];
+            const top = (treeColumnMap.get(keys[i]) || [0])[(treeColumnMap.get(keys[i]) || [0]).length - 1];
+
+            addToTopRope(currentTopRope, [keys[i], top]);            
+            addToBottomRope(currentBottomRope, [keys[i], bottom]);
         }
 
-        while(areThereTreesOutsidBottom(currentBottomRope, treeColumnMap, keys)) {
-            addMaxToCurrentBottomRope(currentBottomRope, treeColumnMap, keys);
-        }
+        const currentLeftRope = (treeColumnMap.get(keys[0]) || []).map(y => [keys[0], y]);
+        const currentRightRope = (treeColumnMap.get(keys[keys.length - 1]) || []).map(y => [keys[keys.length - 1], y]);
 
-        const result = new Set<string>();
+        const result = new Set<string>([...currentLeftRope, ...currentBottomRope, ...currentRightRope, ...currentTopRope].map(coor => coor.join()));
 
         return Array.from(result).map(s => s.split(',').map(n => Number(n)));        
     };
 
-    function areThereTreesOutsideTop(currentTopRope: number[][], treeColumnMap: Map<number, number[]>, keys: number[]): boolean{
-        throw new Error("Function not implemented.");
-    }
-    
-    function addMaxToCurrentTopRope(currentTopRope: number[][], treeColumnMap: Map<number, number[]>, keys: number[]) {
-        throw new Error("Function not implemented.");
+    function addToTopRope(currentTopRope: number[][], next: number[]) {
+        while(shouldReduceTop(currentTopRope, next)) {
+            currentTopRope.pop();
+        }
+
+        currentTopRope.push(next);
     }
 
-    function areThereTreesOutsidBottom(currentTopRope: number[][], treeColumnMap: Map<number, number[]>, keys: number[]): boolean{
-        throw new Error("Function not implemented.");
-    }
-    
-    function addMaxToCurrentBottomRope(currentTopRope: number[][], treeColumnMap: Map<number, number[]>, keys: number[]) {
-        throw new Error("Function not implemented.");
-    }
-    
+    function shouldReduceTop(currentTopRope: number[][], next: number[]): boolean {
+        if (currentTopRope.length < 2) {
+            return false;
+        }
 
+        const ab = getLine(currentTopRope[currentTopRope.length - 2], next);
+
+        return isLastSmaller(currentTopRope[currentTopRope.length - 1], ab);
+    }
+
+    function addToBottomRope(currentBottomRope: number[][], next: number[]) {
+        while(shouldReduceBottom(currentBottomRope, next)) {
+            currentBottomRope.pop();
+        }
+
+        currentBottomRope.push(next)
+    }
+
+    function getLine(x1y1: number[], x2y2: number[]): number[] {
+        const a = (x2y2[1] - x1y1[1]) / (x2y2[0] - x1y1[0]);
+        const b = x2y2[1] - a * x2y2[0];
+
+        return [a, b];
+    }
+
+    function isLastSmaller(xy: number[], ab: number[]): boolean {
+        return xy[1] < xy[0] * ab[0] + ab[1];
+    }
+
+    function shouldReduceBottom(currentBottomRope: number[][], next: number[]): boolean {
+        if (currentBottomRope.length < 2) {
+            return false;
+        }
+
+        const ab = getLine(currentBottomRope[currentBottomRope.length - 2], next);
+
+        return isLastBigger(currentBottomRope[currentBottomRope.length - 1], ab);
+    }
+
+    function isLastBigger(xy: number[], ab: number[]): boolean {
+        return xy[1] > xy[0] * ab[0] + ab[1];
+    }
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
 });
+
 
 
 
