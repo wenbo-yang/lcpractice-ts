@@ -1,20 +1,20 @@
 xdescribe('leetcode 616: add bode tag', () => {
     class TrieNode {
-        children = new TrieNode[128];
+        children = new Array<TrieNode>(128);
         isEnd: boolean = false;
     
         public insert(word: string) {
             let node: TrieNode = this;
             for (const c of word) {
-                if (!node.children[c]) {
-                    node.children[c] = new TrieNode();
+                const index = c.charCodeAt(0) - 'a'.charCodeAt(0);
+                if (!node.children[index]) {
+                    node.children[index] = new TrieNode();
                 }
-                node = node.children[c];
+                node = node.children[index];
             }
             node.isEnd = true;
         }
     }
-
 
     function addBoldTag(s: string, words: string[]): string {
         const trie = new TrieNode();
@@ -26,8 +26,8 @@ xdescribe('leetcode 616: add bode tag', () => {
         for (let i = 0; i < n; ++i) {
             let node = trie;
             for (let j = i; j < n; ++j) {
-                let idx = s.charAt(j);
-                if (node.children[idx] == null) {
+                let idx = s.charAt(j).charCodeAt(0) - 'a'.charCodeAt(0);
+                if (!node.children[idx]) {
                     break;
                 }
                 node = node.children[idx];

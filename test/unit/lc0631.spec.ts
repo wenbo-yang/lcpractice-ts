@@ -2,9 +2,9 @@ import { Queue } from "./commonLibs";
 
 xdescribe('leetcode 631: design excel sum formula', () => {
     class Excel {
-        rows: number;
-        columns: number;
-        cells: number[][];
+        rows: number = 0;
+        columns: number = 0;
+        cells: number[][] = [];
         cellSumMap = new Map<string, Map<string, number>>();
         sumCellMap = new Map<string, Map<string, number>>();
     
@@ -77,7 +77,7 @@ xdescribe('leetcode 631: design excel sum formula', () => {
             }
             const difference = sum - prevValue;
             this.updateRelevantCells(sumCellName, difference);
-            return this.cells[r][c - 'A'.charCodeAt(0)];
+            return this.cells[r][c.charCodeAt(0) - 'A'.charCodeAt(0)];
         }
     
         private updateRelevantCells(cellName: string, difference: number) {

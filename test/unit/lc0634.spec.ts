@@ -1,5 +1,5 @@
 xdescribe('leetcode 634: find derangement array number', () => {
-    function findDerangedArrayNumber(n): number {
+    function findDerangedArrayNumber(n: number): number {
         const mod = 1000000007;
         let a = 1; 
         let b = 0;

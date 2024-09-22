@@ -9,7 +9,7 @@ xdescribe('leetcode 632: smallest k range', () => {
     
     function smallestRange(nums: number[][]): number[] {
         let index = 0;
-        const orderedList = nums.map( r => [r[0], index++, 0]).sort((a, b) => b[0] - a[0]);
+        const orderedList = nums.map(r => [r[0], index++, 0]).sort((a, b) => b[0] - a[0]);
         
         
         let smallest = [0,0,0];
@@ -45,7 +45,7 @@ xdescribe('leetcode 632: smallest k range', () => {
     function removeSmallestAndOfferNext(orderedList: number[][], nums: number[][]) {
         const smallest = orderedList[orderedList.length - 1];
         orderedList.pop();
-        orderedList.push(nums[smallest[1][smallest[2] + 1], smallest[1], smallest[2] + 1]);
+        orderedList.push([nums[smallest[1]][smallest[2] + 1], smallest[1], smallest[2] + 1]);
 
         if (orderedList[orderedList.length - 1][0]) {
             orderedList.sort((a, b) => b[0] - a[0]);
