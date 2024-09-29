@@ -22,7 +22,7 @@ xdescribe('leetcode 676: magic dictionary', () => {
                 const arr = searchWord.split('');
                 arr[i] = '*';
                 const key = arr.join('');
-                if (this.map.has(key) && !(this.map.get(key) || new Set()).has(searchWord['i'])) {
+                if (this.map.has(key) && !(this.map.get(key) || new Set()).has(searchWord[i])) {
                     return true;
                 }
             }
