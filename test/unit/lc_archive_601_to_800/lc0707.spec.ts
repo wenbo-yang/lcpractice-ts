@@ -12,7 +12,7 @@ xdescribe('leetcode 707: description', () => {
     class MyLinkedList {
         head: LinkedListNode | null = null;
         tail: LinkedListNode | null = null;
-        size: number;
+        size: number = 0;
         
         constructor() {    
         }

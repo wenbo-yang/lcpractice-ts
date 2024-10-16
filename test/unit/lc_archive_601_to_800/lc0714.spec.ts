@@ -29,7 +29,7 @@ xdescribe('leetcode 714: max profit with transaction fee', () => {
         return max;
     };
 
-    function initialize(df: number[][], prices: number[], fee) {
+    function initialize(df: number[][], prices: number[], fee: number) {
         for (let j = 1; j < df[0].length; j++) {
             df[0][j] = Math.max(prices[j] - prices[0] - fee, df[0][j - 1]);
         }

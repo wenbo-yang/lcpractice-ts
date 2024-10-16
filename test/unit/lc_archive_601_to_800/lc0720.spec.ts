@@ -47,7 +47,7 @@ xdescribe('leetcode 720: longest word that can be built', () => {
     function getFirstWord(root: TrieNode, current: string): string {
         for(let i = 0; i < root.children.length; i++) {
             if (root.children[i] && root.children[i].isEnd) {
-                current = getFirstWord(root[i], current + buildChar(i));
+                current = getFirstWord(root.children[i], current + buildChar(i));
                 if (current) {
                     return current;
                 }

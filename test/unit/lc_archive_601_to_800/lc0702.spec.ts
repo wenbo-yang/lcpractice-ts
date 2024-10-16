@@ -1,6 +1,6 @@
 xdescribe('leetcode 702: description', () => {
     interface ArrayReader {
-        get(index: number);
+        get(index: number): number;
     }
     
     function search(reader: ArrayReader, target: number): number {

@@ -181,6 +181,7 @@ export class QuadTreeNode {
 }
 
 export class Queue<T> {
+
     private queuePointer = 0;
     private array: T[] = [];
 
@@ -212,6 +213,15 @@ export class Queue<T> {
 
     public pop(): T | undefined {
         const result = this.array.pop();
+        return result;
+    }
+
+    public toArray(): T[] {
+        const result: T[] = [];
+        for (let i = this.queuePointer; i < this.array.length; i++) {
+            result.push(this.array[i]);
+        }
+
         return result;
     }
 
