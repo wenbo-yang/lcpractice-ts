@@ -74,7 +74,7 @@ xdescribe('leetcode 827: making a large island  ', () => {
         return neighbors;
     }
 
-    function isInBound(i: number, j: number, grid) {
+    function isInBound(i: number, j: number, grid: number[][]) {
         return i < 0 || i >= grid.length || j < 0 || j >= grid[0].length
     }
 
