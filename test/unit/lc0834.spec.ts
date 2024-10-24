@@ -1,5 +1,7 @@
 xdescribe('leetcode 834: description', () => {
     function sumOfDistancesInTree(n: number, edges: number[][]): number[] {
+
+        // construct graph
         const graph: number[][] = Array.from({ length: n }, () => []);
         for (const [node1, node2] of edges) {
             graph[node1].push(node2);
