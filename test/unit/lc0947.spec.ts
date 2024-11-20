@@ -1,13 +1,13 @@
 xdescribe('leetcode 947: most stone removed from the same row and col', () => {
     
-    function initParents(size: number, parents): void {
+    function initParents(size: number, parents: number[]): void {
         for (let i = 0; i < size; i++) {
             parents[i] = i;
         }
     }
     
     // Function to find the root of element 'x' with path compression.
-    function find(x: number, parents): number {
+    function find(x: number, parents: number[]): number {
         if (parents[x] !== x) {
             parents[x] = find(parents[x], parents); // Path compression step
         }
