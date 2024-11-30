@@ -19,7 +19,8 @@ xdescribe('leetcode 1042: flower planting with no adjacent', () => {
                 }
             }
         }
-        |return flowerTypes;
+        
+        return flowerTypes;
     };
 
     it('test case 1 Input:, target = 5, output 2 ', () => {});
