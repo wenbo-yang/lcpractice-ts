@@ -9,12 +9,12 @@ xdescribe('leetcode 1048: longest string chain', () => {
             for (let j = 0; j < currentWord.length; j++) {
                 const previousWord = currentWord.slice(0, j) + currentWord.slice(j + 1);
             
-                dp[currentWord] = Math.max(
+                dp.set(currentWord, Math.max(
                     dp.get(currentWord) || 0,
                     (dp.get(previousWord) || 0) + 1
-                );
+                ));
             }
-            ans = Math.max(ans, dp[currentWord]);
+            ans = Math.max(ans, dp.get(currentWord) || 0);
         }
         return ans;
     };
