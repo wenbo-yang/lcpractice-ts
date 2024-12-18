@@ -83,8 +83,8 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
         }
     
         fixAfterInsert(pt: RBTreeNode<T>): void {
-            let parent = null;
-            let grandParent = null;
+            let parent: RBTreeNode<T> | null = null;
+            let grandParent: RBTreeNode<T> | null = null;
     
             while (pt !== this.root && pt.color !== 1 && pt.parent?.color === 0) {
                 parent = pt.parent;
@@ -173,27 +173,19 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
         deleteNode(v: RBTreeNode<T>): void {
             const u = BSTreplace(v);
     
-            // True when u and v are both black
             const uvBlack = (u === null || u.color === 1) && v.color === 1;
             const parent = v.parent!;
     
             if (!u) {
-                // u is null therefore v is leaf
                 if (v === this.root) this.root = null;
-                // v is root, making root null
                 else {
                     if (uvBlack) {
-                        // u and v both black
-                        // v is leaf, fix double black at v
                         this.fixDoubleBlack(v);
                     } else {
-                        // u or v is red
                         if (v.sibling()) {
-                            // sibling is not null, make it red"
                             v.sibling()!.color = 0;
                         }
                     }
-                    // delete v from the tree
                     if (v.isOnLeft()) parent.left = null;
                     else parent.right = null;
                 }
@@ -201,38 +193,27 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
             }
     
             if (!v.left || !v.right) {
-                // v has 1 child
                 if (v === this.root) {
-                    // v is root, assign the value of u to v, and delete u
                     v.data = u.data;
                     v.left = v.right = null;
                 } else {
-                    // Detach v from tree and move u up
                     if (v.isOnLeft()) parent.left = u;
                     else parent.right = u;
                     u.parent = parent;
                     if (uvBlack) this.fixDoubleBlack(u);
-                    // u and v both black, fix double black at u
                     else u.color = 1; // u or v red, color u black
                 }
                 return;
             }
     
-            // v has 2 children, swap data with successor and recurse
             this.swapData(u, v);
             this.deleteNode(u);
     
-            // find node that replaces a deleted node in BST
             function BSTreplace(x: RBTreeNode<T>): RBTreeNode<T> | null {
-                // when node have 2 children
                 if (x.left && x.right) return successor(x.right);
-                // when leaf
                 if (!x.left && !x.right) return null;
-                // when single child
                 return x.left ?? x.right;
             }
-            // find node that do not have a left child
-            // in the subtree of the given node
             function successor(x: RBTreeNode<T>): RBTreeNode<T> {
                 let temp = x;
                 while (temp.left) temp = temp.left;
@@ -391,7 +372,7 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
     
         ceil(val: T): T | undefined {
             let p = this.tree.root;
-            let higher = null;
+            let higher: RBTreeNode<T> | null = null;
             while (p) {
                 if (this.compare(p.data, val) >= 0) {
                     higher = p;
@@ -405,7 +386,7 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
     
         floor(val: T): T | undefined {
             let p = this.tree.root;
-            let lower = null;
+            let lower: RBTreeNode<T> | null = null;
             while (p) {
                 if (this.compare(val, p.data) >= 0) {
                     lower = p;
@@ -419,7 +400,7 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
     
         higher(val: T): T | undefined {
             let p = this.tree.root;
-            let higher = null;
+            let higher: RBTreeNode<T> | null = null;
             while (p) {
                 if (this.compare(val, p.data) < 0) {
                     higher = p;
@@ -433,7 +414,7 @@ xdescribe('leetcode 1172: dinner plat stacks', () => {
     
         lower(val: T): T | undefined {
             let p = this.tree.root;
-            let lower = null;
+            let lower: RBTreeNode<T> | null  = null;
             while (p) {
                 if (this.compare(p.data, val) < 0) {
                     lower = p;
